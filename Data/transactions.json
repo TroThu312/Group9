@@ -1,0 +1,30 @@
+[
+    {
+        "Transaction_Id": "T001",
+        "Student_Id": "K234161859",
+        "Name": "ThuMai",
+        "Books": [
+            {
+                "Book_Id": "9780132350884",
+                "Title": "Clean Code",
+                "Borrow_Date": "2024-02-01",
+                "Return_Date": "2024-02-10",
+                "Status": "Returned"
+            }
+        ]
+    },
+    {
+        "Transaction_Id": "T002",
+        "Student_Id": "K234161867",
+        "Name": "MinhTri",
+        "Books": [
+            {
+                "Book_Id": "9780201616224",
+                "Title": "The Pragmatic Programmer",
+                "Borrow_Date": "2024-02-02",
+                "Return_Date": "2024-02-10",
+                "Status": "Borrowed"
+            }
+        ]
+    }
+]

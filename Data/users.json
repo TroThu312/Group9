@@ -1,0 +1,20 @@
+[
+    {
+        "Student_Id": "K234161859",
+        "Name": "ThuMai",
+        "Contract": "078123456",
+        "Address": "Ho Chi Minh City"
+    },
+    {
+        "Student_Id": "K234161867",
+        "Name": "MinhTri",
+        "Contract": "098323567",
+        "Address": "Ho Chi Minh City"
+    },
+    {
+        "Student_Id": "K234161678",
+        "Name": "MaiNguyen",
+        "Contract": "067142578",
+        "Address": "Ho Chi Minh City"
+    }
+]

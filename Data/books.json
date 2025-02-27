@@ -1,0 +1,50 @@
+[
+    {
+        "Book_Id": "9780132350884",
+        "Title": "Clean Code",
+        "Author": "Robert C. Martin",
+        "Genre": "Programming",
+        "Stock": 10,
+        "Borrowed_Count": 5
+    },
+    {
+        "Book_Id": "9780201616224",
+        "Title": "The Pragmatic Programmer",
+        "Author": "Andrew Hunt",
+        "Genre": "Programming",
+        "Stock": 7,
+        "Borrowed_Count": 3
+    },
+    {
+        "Book_Id": "0735211299",
+        "Title": "Atomic Habits",
+        "Author": "James Clear",
+        "Genre": "Self-Help",
+        "Stock": 12,
+        "Borrowed_Count": 8
+    },
+    {
+        "Book_Id": "9780307887894",
+        "Title": "The Lean Startup",
+        "Author": "Eric Ries",
+        "Genre": "Business",
+        "Stock": 15,
+        "Borrowed_Count": 10
+    },
+    {
+        "Book_Id": "9780061122415",
+        "Title": "The Alchemist",
+        "Author": "Paulo Coelho",
+        "Genre": "Fiction",
+        "Stock": 20,
+        "Borrowed_Count": 15
+    },
+    {
+        "Book_Id": "0714705853",
+        "Title": "How the Steel Was Tempered",
+        "Author": "Nikolai Ostrovsky",
+        "Genre": "Fiction",
+        "Stock": 8,
+        "Borrowed_Count": 3
+    }
+]
