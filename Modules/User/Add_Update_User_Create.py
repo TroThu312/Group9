@@ -1,11 +1,11 @@
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-from Modules.User.Add_Update_User_Process import Add_Update_User_Process as uup  # Import module xử lý sự kiện của admin
+from Modules.User.Add_Update_User_Process import Add_Update_User_Process as auup  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 import time
 import tkinter as tk
 
 
-class Update_User_Create:
+class Add_Update_User_Create:
     def update_time(self):
         current_date = time.strftime("%Y-%m-%d")
         current_time = time.strftime("%H:%M:%S")
@@ -41,30 +41,30 @@ class Update_User_Create:
 
 
         # ---- Button add ---
-        self.add_button_image = PhotoImage(file=f"./Images/update_user/add_button.png")
+        self.add_button_image = PhotoImage(file=f"./Images/User/add_button.png")
         self.add_button = Button(image=self.add_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                 command=lambda: uup.add_button_handle(self))
+                                 command=lambda: auup.add_button_handle(self))
         # command = lambda: uup.Update_User_Process.add_button_handle(self))
         self.add_button.place(x=326.0, y=637.0, width=195.0, height=62.0)
 
         # ---- Button update-
-        self.update_button_image = PhotoImage(file=f"./Images/update_user/update_button.png")
+        self.update_button_image = PhotoImage(file=f"./Images/User/update_button.png")
         self.update_button = Button(image=self.update_button_image, borderwidth=0, highlightthickness=0,
-                                    relief="flat",command=lambda: uup.update_button_handle(self))
+                                    relief="flat",command=lambda: auup.update_button_handle(self))
         # command = lambda: uup.Update_User_Process.update_button_handle(self))
         self.update_button.place(x=543.0, y=637.0, width=195.0, height=62.0)
 
         # ---- Button reset ---
-        self.reset_button_image = PhotoImage(file=f"./Images/update_user/reset_button.png")
+        self.reset_button_image = PhotoImage(file=f"./Images/User/reset_button.png")
         self.reset_button = Button(image=self.reset_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                   command=lambda: uup.reset_button_handle(self))
+                                   command=lambda: auup.reset_button_handle(self))
 
         self.reset_button.place(x=760.0, y=637.0, width=195.0, height=62.0)
 
         # ---- Button Back ---
-        self.back_button_image = PhotoImage(file=f"./Images/update_user/back_button.png")
+        self.back_button_image = PhotoImage(file=f"./Images/User/back_button.png")
         self.back_button = Button(image=self.back_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                  command=lambda: uup.back_button_handle(self))
+                                  command=lambda: auup.back_button_handle(self))
 
         self.back_button.place(x=41.0, y=181.0, width=151.0, height=50.0)
 
@@ -96,4 +96,4 @@ class Update_User_Create:
 
 
 if __name__ == "__main__":
-    Update_User_Create()
+    Add_Update_User_Create()
