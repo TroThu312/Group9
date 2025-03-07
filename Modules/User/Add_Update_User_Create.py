@@ -35,7 +35,7 @@ class Update_User_Create:
                              bd=0, highlightthickness=0, relief="ridge")
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
         # --- Hình nền  ---
-        self.background_image = PhotoImage(file=f"./Images/update_user/background.png")
+        self.background_image = PhotoImage(file=f"./Images/User/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
 
