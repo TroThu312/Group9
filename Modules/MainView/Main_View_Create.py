@@ -36,7 +36,7 @@ class Main_View_Create:
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
 
         # -----Thêm hình nền-----.
-        self.background_image = PhotoImage(file=f"./Code_view/Images/main_view/background.png")
+        self.background_image = PhotoImage(file=f"./Images/MainPage/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # Hiển thị ngày giờ
