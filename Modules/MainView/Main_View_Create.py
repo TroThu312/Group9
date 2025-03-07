@@ -1,5 +1,5 @@
 from tkinter import *
-# import Modules.Main_View_Process as mvp
+import Modules.MainPage.Main_View_Process as mvp
 from PIL import Image, ImageTk
 import time
 import tkinter as tk
@@ -48,49 +48,49 @@ class Main_View_Create:
 
         # -----Các nút-----
 
-        self.show_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/show_book_button.png")
+        self.show_book_button_image = PhotoImage(file=f"./Images/MainPage/show_book_button.png")
         self.show_book_button = Button(image=self.show_book_button_image, borderwidth=0,
                                        highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.show_book_button_handle(self))
         self.show_book_button.place(x=1012.0, y=477, width=195, height=59)
 
-        self.logout_button_image = PhotoImage(file=f"./Code_view/Images/main_view/logout_button.png")
+        self.logout_button_image = PhotoImage(file=f"./Images/MainPage/logout_button.png")
         self.logout_button = Button(image=self.logout_button_image, borderwidth=0,
                                     highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.logout_button_handle(self))
         self.logout_button.place(x=1012.0, y=558, width=195, height=59)
 
-        self.return_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/return_book_button.png")
+        self.return_book_button_image = PhotoImage(file=f"./Images/MainPage/return_book_button.png")
         self.return_book_button = Button(image=self.return_book_button_image, borderwidth=0,
                                          highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.return_book_button_handle(self))
         self.return_book_button.place(x=1012.0, y=389, width=195, height=59)
 
-        self.borrow_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/borrow_book_button.png")
+        self.borrow_book_button_image = PhotoImage(file=f"./Images/MainPage/borrow_book_button.png")
         self.borrow_book_button = Button(image=self.borrow_book_button_image, borderwidth=0,
                                          highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.borrow_book_button_handle(self))
         self.borrow_book_button.place(x=1012.0, y=308, width=195, height=59)
 
-        self.add_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/add_book_button.png")
+        self.add_book_button_image = PhotoImage(file=f"./Images/MainPage/add_book_button.png")
         self.add_book_button = Button(image=self.add_book_button_image, borderwidth=0,
                                       highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.add_book_button_handle(self))
         self.add_book_button.place(x=781.0, y=308, width=195, height=59)
 
-        self.update_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/update_book_button.png")
+        self.update_book_button_image = PhotoImage(file=f"./Images/MainPage/update_book_button.png")
         self.update_book_button = Button(image=self.update_book_button_image, borderwidth=0,
                                          highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.update_book_button_handle(self))
         self.update_book_button.place(x=781.0, y=390, width=195, height=59)
 
-        self.remove_book_button_image = PhotoImage(file=f"./Code_view/Images/main_view/remove_book_button.png")
+        self.remove_book_button_image = PhotoImage(file=f"./Images/MainPage/remove_book_button.png")
         self.remove_book_button = Button(image=self.remove_book_button_image, borderwidth=0,
                                          highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.remove_book_button_handle(self))
         self.remove_book_button.place(x=781.0, y=477, width=195, height=59)
 
-        self.add_update_user_button_image = PhotoImage(file=f"./Code_view/Images/main_view/add_update_user_button.png")
+        self.add_update_user_button_image = PhotoImage(file=f"./Images/MainPage/add_update_user_button.png")
         self.add_update_user_button = Button(image=self.add_update_user_button_image, borderwidth=0,
                                              highlightthickness=0, relief="flat", )
         # command = lambda: mvp.Main_View_Process.add_update_user_button_handle(self))
