@@ -5,36 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/APi/Book_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Borrower_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Login_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Main_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/admin.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/books.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/transactions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/set_up.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_return.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_show.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_search.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/TextBox_borrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/background_borrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_borrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_reset.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_reset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_submit.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_submit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +42,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/TroThu312/Group9.git&quot;,
-    &quot;accountId&quot;: &quot;d8a64322-0d1c-402c-9267-d201a6a06b0d&quot;
+    &quot;accountId&quot;: &quot;709fb881-a1f4-4918-8ec4-54cd6a64e2ee&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -74,19 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/Croup9_KTLT&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/study/KTLT/Group9_Final/Images/BorrowReturn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\KTLT\Group9_Final\Images\BorrowReturn" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Group9" />
@@ -115,8 +104,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
       </set>
     </attachedChunks>
   </component>
@@ -130,6 +118,7 @@
       <updated>1740664072873</updated>
       <workItem from="1740664075124" duration="927000" />
       <workItem from="1740666178822" duration="1603000" />
+      <workItem from="1741419708102" duration="493000" />
     </task>
     <servers />
   </component>
