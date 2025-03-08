@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
@@ -22,6 +23,43 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_return.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_show.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_search.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/TextBox_borrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/background_borrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/background_borrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_reset.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_reset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BorrowReturn/button_submit.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/BorrowReturn/button_submit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+>>>>>>> origin/main
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
@@ -31,11 +69,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/TroThu312/Group9.git&quot;,
-    &quot;accountId&quot;: &quot;d8a64322-0d1c-402c-9267-d201a6a06b0d&quot;
+    &quot;accountId&quot;: &quot;709fb881-a1f4-4918-8ec4-54cd6a64e2ee&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
+<<<<<<< HEAD
 }</component>
   <component name="ProjectId" id="2tcvFE3adIjMqb0Tn9Y7JFEna1k" />
   <component name="ProjectLevelVcsManager">
@@ -107,4 +146,84 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+=======
+}</component>
+  <component name="ProjectId" id="2tcvFE3adIjMqb0Tn9Y7JFEna1k" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/study/KTLT/Group9_Final/Images/BorrowReturn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\KTLT\Group9_Final\Images\BorrowReturn" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Group9" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="" />
+      <created>1740664072873</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740664072873</updated>
+      <workItem from="1740664075124" duration="927000" />
+      <workItem from="1740666178822" duration="1603000" />
+      <workItem from="1741419708102" duration="493000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+>>>>>>> origin/main
 </project>
