@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/APi/Book_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Borrower_Management_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Login_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APi/Main_Api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/admin.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/books.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/transactions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/set_up.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
