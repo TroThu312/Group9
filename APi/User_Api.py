@@ -10,7 +10,8 @@ class User_Api(main_api):
 
     def add_new_user(self, student_id, name, contact, address):
         user = self.users_collection.find_one({"Student_Id": student_id})
-        if user is None:
+        sdt = self.users_collection.find_one({"Contract": contact})
+        if user is None and sdt is None:
             new_user = {
                 "Student_Id": student_id,
                 "Name": name,
@@ -24,7 +25,9 @@ class User_Api(main_api):
 
     def update_user(self, student_id, name, contact, address):
         user = self.users_collection.find_one({"Student_Id": student_id})
-        if user is None:
+        sdt = self.users_collection.find_one({"Contract": contact})
+
+        if user is None or sdt is None:
             return "Not Found"
         else:
             updated_fields = {}
