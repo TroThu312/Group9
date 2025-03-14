@@ -26,7 +26,6 @@ class Remove_Book_Create:
                                               (self.screen_height - self.window_height) / 2))
         self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
         self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 
         # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,

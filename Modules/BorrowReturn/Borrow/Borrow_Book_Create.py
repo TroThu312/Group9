@@ -1,6 +1,6 @@
 from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-#import Borrow_Book_Process as bbp  # Import module xử lý sự kiện của admin
+from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 
 
@@ -30,12 +30,12 @@ class Borrow_Book_Create:
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
 
         # -----Thêm hình nền-----
-        self.background_image = PhotoImage(file=f"../../.../../../Images/BorrowReturn/BorrowReturn/background_borrow.png")
+        self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_borrow.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # -----Nút quay lại-----
 
-        self.back_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_back.png")  # tạo ảnh button
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
         self.back_button = Button(image=self.back_image,
                                    borderwidth=0,
                                    highlightthickness=0,
@@ -46,7 +46,7 @@ class Borrow_Book_Create:
 
         # -----Nút reset-----
 
-        self.reset_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_reset.png")  # tạo ảnh button
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  # tạo ảnh button
         self.reset_button = Button(image=self.reset_image,
                               borderwidth=0,
                               highlightthickness=0,
@@ -57,7 +57,7 @@ class Borrow_Book_Create:
 
         # -----Nút submit-----
 
-        self.submit_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_submit.png")  # tạo ảnh button
+        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  # tạo ảnh button
         self.submit_button = Button(image=self.submit_image,
                                borderwidth=0,
                                highlightthickness=0,
@@ -99,8 +99,6 @@ class Borrow_Book_Create:
             height=60
         )
         # -----Hiển thị thông tin-----
-        self.name = Label(self.window, text="Hôm nay là chủ nhật", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
-        self.name.place(x=178, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
         self.date.place(x=760, y=85, anchor="nw")
         self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
