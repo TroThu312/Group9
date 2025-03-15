@@ -1,6 +1,5 @@
 from tkinter import *
 from PIL import Image, ImageTk
-
 import Modules.Login.Login_Process as lgp
 
 class Login_Process_Create:
@@ -32,7 +31,7 @@ class Login_Process_Create:
             image=self.button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Forgot Pass Clicked"),
+            command=lambda: lgp.Login_Process.forget_button_handle(self),
             relief="flat"
         )
         self.button_1.place(x=496.0, y=658.0, width=296.0, height=30.0)
