@@ -1,7 +1,7 @@
 from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from tkinter.ttk import Treeview, Style
-
+from Modules.BorrowReturn.Return.Return_Book_Process import Return_Book_Process as rbp
 #import Return_Book_Process as rbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 
@@ -32,11 +32,11 @@ class Return_Book_Create:
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
 
         # -----Thêm hình nền-----
-        self.background_image = PhotoImage(file=f"../../../Images/BorrowReturn/background_return.png")
+        self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_return.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # -----Nút quay lại-----
-        self.back_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_back.png")  # tạo ảnh button
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
         self.back_button = Button(image=self.back_image,
                                   borderwidth=0,
                                   highlightthickness=0,
@@ -46,7 +46,7 @@ class Return_Book_Create:
         self.back_button.place(x=40, y=180, width=151, height=50)
 
         # -----Nút reset-----
-        self.reset_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_reset.png")  # tạo ảnh button
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  # tạo ảnh button
         self.reset_button = Button(image=self.reset_image,
                               borderwidth=0,
                               highlightthickness=0,
@@ -57,20 +57,20 @@ class Return_Book_Create:
 
 
         # -----Nút Search-----
-        self.search_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_search.png")  # tạo ảnh button
+        self.search_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_search.png")  # tạo ảnh button
         self.search_button = Button(image=self.search_image,
                                     borderwidth=0,
                                     highlightthickness=0,
-                                    command=lambda: rbp.borrow_button_handle(self),
+                                    command=lambda: rbp.search_button_handle(self),
                                     relief="flat"
                                     )
         self.search_button.place(x=1062, y=198, width=195, height=62)
         # -----Nút submit-----
-        self.submit_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_submit.png")  # tạo ảnh button
+        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  # tạo ảnh button
         self.submit_button = Button(image=self.submit_image,
                                     borderwidth=0,
                                     highlightthickness=0,
-                                    command=lambda: rbp.borrow_button_handle(self),
+                                    command=lambda: rbp.return_button_handle(self),
                                     relief="flat"
                                     )
         self.submit_button.place(x=82, y=570, width=195, height=62)

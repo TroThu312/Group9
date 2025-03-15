@@ -1,7 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
-def relative_to_assets(path: str) -> str:
-    return f"./Images/Login/{path}"
+import Modules.Login.Login_Process as lgp
 
 class Login_Process_Create:
     
@@ -21,13 +20,13 @@ class Login_Process_Create:
             relief="ridge"
         )
         self.canvas.place(x=0, y=0)
-
+        #file=f"./Images/MainPage/show_book_button.png"
         # Background Image
-        self.background_image = PhotoImage(file=relative_to_assets("background.png"))
+        self.background_image = PhotoImage(file=f"./Images/Login/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # Button forgot password
-        self.button_image_1 = PhotoImage(file=relative_to_assets("button_forgotpass.png"))
+        self.button_image_1 = PhotoImage(file=f"./Images/Login/button_forgotpass.png")
         self.button_1 = Button(
             image=self.button_image_1,
             borderwidth=0,
@@ -38,40 +37,38 @@ class Login_Process_Create:
         self.button_1.place(x=496.0, y=658.0, width=296.0, height=30.0)
 
         # Button Login
-        self.button_image_2 = PhotoImage(file=relative_to_assets("button_login.png"))
+        self.button_image_2 = PhotoImage(file=f"./Images/Login/button_login.png")
         self.button_2 = Button(
             image=self.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Login Clicked"),
+            command=lambda: lgp.Login_Process.login_button_handle(self),
             relief="flat"
         )
         self.button_2.place(x=713.0, y=581.0, width=149.0, height=50.0)
 
-        # Entry 
-        self.entry_image_1 = PhotoImage(file=relative_to_assets("image_password.png"))
+        # Entry 1 - Password
+        self.entry_image_1 = PhotoImage(file=f"./Images/Login/image_password.png")
         self.canvas.create_image(645.0, 536.0, image=self.entry_image_1)
-        self.entry_1 = Entry(
+        self.password_entry = Entry(
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
+            show="*",
             highlightthickness=0
         )
-        self.entry_1.place(x=499.0, y=514.0, width=360.0, height=42.0)
+        self.password_entry.place(x=499.0, y=514.0, width=360.0, height=42.0)
 
-        # Entry 2
-        self.entry_image_2 = PhotoImage(file=relative_to_assets("image_username.png"))
+        # Entry 2 - Username
+        self.entry_image_2 = PhotoImage(file=f"./Images/Login/image_username.png")
         self.canvas.create_image(639.0, 459.0, image=self.entry_image_2)
-        self.entry_2 = Entry(
+        self.name_entry = Entry(
             bd=0,
             bg="#D9D9D9",
             fg="#000716",
             highlightthickness=0
         )
-        self.entry_2.place(x=498.0, y=437.0, width=360.0, height=42.0)
+        self.name_entry.place(x=498.0, y=437.0, width=360.0, height=42.0)
     
         self.window.resizable(False, False)
         self.window.mainloop()
-
-if __name__ == "__main__":
-    Login_Process_Create()

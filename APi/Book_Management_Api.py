@@ -9,8 +9,25 @@ class Book_Management_Api(main_api):
         self.connector()
 
     def add_new_book(self, json_data):
-        # Get Book_ID from json_data
         book_id = json_data["Book_Id"]
+        title = json_data["Title"]
+        author = json_data["Author"]
+        genre = json_data["Genre"]
+        # 🔥 Kiểm tra trùng lặp theo Book_Id
+        existing_book_by_id = self.warehouse_collection.find_one({'Book_Id': book_id})
+        if existing_book_by_id:
+            # Nếu Book_Id đã tồn tại → Báo lỗi
+            return -3
+        # 🔥 Kiểm tra trùng lặp theo Title, Author, Genre
+        existing_book_by_info = self.warehouse_collection.find_one({
+            'Title': title,
+            'Author': author,
+            'Genre': genre
+        })
+        if existing_book_by_info:
+            # Nếu Title, Author, Genre đã tồn tại → Báo lỗi
+            return -3
+        
         # Get book information from Book_id in the collection
         book = self.warehouse_collection.find_one({'Book_Id': book_id})
         if book is None:
@@ -34,7 +51,7 @@ class Book_Management_Api(main_api):
             if current_quantity < 30:
                 new_quantity = current_quantity + json_data["Stock"]
                 self.warehouse_collection.update_one(
-                    {'Book_ID': book_id}, {'$set': {'Stock': new_quantity}})
+                    {'Book_Id': book_id}, {'$set': {'Stock': new_quantity}})
                 return 0  # Success
             else:
                 # Error: book quantity is full
