@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
-# import Modules.Forget.Code.Forget_Code_Process as fcp
+import Modules.Forget.Code.Forget_Code_Process as fcp
 class Forget_Code_Create:
 
     def __init__(self):
@@ -30,7 +30,7 @@ class Forget_Code_Create:
             image=self.next_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Sent"),
+            command=lambda: fcp.Forget_Code_Process.submit_button_handle(self),
             relief="flat"
         )
         self.next_button.place(x=709.0, y=609.0, width=140.0, height=50.0)
@@ -41,7 +41,7 @@ class Forget_Code_Create:
             image=self.back_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Back"),
+            command=lambda: fcp.Forget_Code_Process.back_button_handle(self) ,
             relief="flat"
         )
         self.back_button.place(x=365.0, y=192.0, width=82.0, height=67.0)

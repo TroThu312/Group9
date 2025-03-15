@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
-# import Modules.Forget.Change.Forget_Change_Process as fchp
+import Modules.Forget.Change.Forget_Change_Process as fchp
 class Forget_Change_Create:
 
     def __init__(self):
@@ -30,7 +30,7 @@ class Forget_Change_Create:
             image=self.change_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("change"),
+            command=lambda: fchp.Forget_Change_Process.change_button_handle(self),
             relief="flat"
         )
         self.change_button.place(x=727.0, y=629.0, width=150.0, height=50.0)
@@ -41,7 +41,7 @@ class Forget_Change_Create:
             image=self.back_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Back"),
+            command=lambda: fchp.Forget_Change_Process.back_button_handle(self),
             relief="flat"
         )
         self.back_button.place(x=365.0, y=192.0, width=82.0, height=67.0)
