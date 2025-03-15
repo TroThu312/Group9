@@ -27,7 +27,7 @@ class Login_Process_Create:
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # Button forgot password
-        self.button_forgetpassword_image = PhotoImage(file=f"./Images/Login/button_forgotpass.png")
+        self.button_forgetpassword_image = PhotoImage(file=f"./Images/Login/button_forgetpass.png")
         self.button_forgetpassword = Button(
             image=self.button_forgetpassword_image,
             borderwidth=0,
