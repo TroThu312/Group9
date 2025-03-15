@@ -1,7 +1,10 @@
+import sys
+sys.path.append('D:/Code/Group9')  # Thêm đường dẫn thư mục gốc của dự án vào sys.path
+import Modules.BorrowReturn.Show.Show_Book_Process as sbp
+
 from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from tkinter.ttk import Style, Treeview
-
 #import Show_Book_Process as sbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 
@@ -32,24 +35,24 @@ class Show_Book_Create:
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
 
         # -----Thêm hình nền-----
-        self.background_image = PhotoImage(file=f"../../../Images/BorrowReturn/background_show.png")
+        self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_show.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # -----Nút quay lại-----
-        self.back_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_back.png")  # tạo ảnh button
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
         self.back_button = self.canvas.create_image(41, 181, image=self.back_image,
                                           anchor="nw")  # tạo button trên canva
         self.canvas.tag_bind(self.back_button, "<Button-1>",
-                        lambda event: sbp.borrow_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
+                        lambda event: sbp.Show_Book_Process.back_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
 
 
         # -----Nút Search-----
 
-        self.search_image = ImageTk.PhotoImage(file=f"../../../Images/BorrowReturn/button_search.png")  # tạo ảnh button
+        self.search_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_search.png")  # tạo ảnh button
         self.search_button = Button(image=self.search_image,
                                     borderwidth=0,
                                     highlightthickness=0,
-                                    command=lambda: sbp.borrow_button_handle(self),
+                                    command=lambda: sbp.Show_Book_Process.show_button_handle(self),
                                     relief="flat"
                                     )
         self.search_button.place(x=805, y=265, width=195, height=62)

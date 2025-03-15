@@ -93,7 +93,3 @@ class Add_Update_User_Create:
         self.address_entry.place(x=508.0, y=548.0, width=434.0, height=62.0)
 
         self.window.mainloop()
-
-
-if __name__ == "__main__":
-    Add_Update_User_Create()
