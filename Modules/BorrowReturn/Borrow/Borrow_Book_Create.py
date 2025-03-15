@@ -8,6 +8,12 @@ import tkinter as tk
 # Định nghĩa lớp giao diện Admin
 class Borrow_Book_Create:
 
+    def update_time(self):
+        current_date = time.strftime("%Y-%m-%d")
+        current_time = time.strftime("%H:%M:%S")
+        self.date_label.config(text=f"{current_date}")
+        self.time_label.config(text=f"{current_time}")
+        self.window.after(1000, self.update_time)
     def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
@@ -107,15 +113,6 @@ class Borrow_Book_Create:
         self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
-
-        def update_time():
-            self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
-            self.now_date = datetime.now().strftime("%d/%m/%Y")  # Lấy thời gian hiện tại
-            self.time.config(text=self.now_time)  # Cập nhật vào Label
-            self.date.config(text=self.now_date)
-            self.window.after(1000, update_time)
-
-        update_time()
 
         # Không cho phép thay đổi kích thước cửa sổ
         self.window.resizable(False, False)
