@@ -28,7 +28,7 @@ class Remove_Book_Process:
 
 
     @staticmethod
-    def back_button_handle(self):
+    def back_button_handle(self, username):
         self.window.destroy()
-        app = mv.Main_View_Create()
+        app = mv.Main_View_Create(username)
         app.window.mainloop()

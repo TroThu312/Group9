@@ -9,7 +9,6 @@ class Show_Book_Process:
         self.window = window
         self.entry_search = entry_search  # Lưu đối tượng entry tìm kiếm
         self.tree = None  # Khởi tạo biến tree (sẽ được tạo trong show_books)
-        self.show_books()  # Gọi để tạo Treeview khi giao diện khởi động
 
     # def show_books(self):
     #     """Tạo Treeview và hiển thị trên giao diện (chỉ gọi một lần khi khởi tạo)."""
@@ -77,7 +76,7 @@ class Show_Book_Process:
                     book["Stock"]
                 ))
     @staticmethod
-    def back_button_handle(obj):
+    def back_button_handle(obj, username):
         obj.window.destroy()
-        app = mainview.Main_View_Create()
+        app = mainview.Main_View_Create(username)
         app.window.mainloop()

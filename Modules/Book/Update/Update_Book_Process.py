@@ -57,7 +57,7 @@ class Update_Book_Process:
         obj.entry_quantity.delete(0, END)
 
     @staticmethod
-    def back_button_handle(obj):
+    def back_button_handle(obj, username):
         obj.window.destroy()
-        app = mainview.Main_View_Create()  # Gọi giao diện MainView
+        app = mainview.Main_View_Create(username)  # Gọi giao diện MainView
         app.window.mainloop()
