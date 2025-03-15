@@ -27,49 +27,44 @@ class Login_Process_Create:
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # Button forgot password
-        self.button_image_1 = PhotoImage(file=f"./Images/Login/button_forgotpass.png")
-        self.button_1 = Button(
-            image=self.button_image_1,
+        self.button_forgetpassword_image = PhotoImage(file=f"./Images/Login/button_forgotpass.png")
+        self.button_forgetpassword = Button(
+            image=self.button_forgetpassword_image,
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("Button Forgot Pass Clicked"),
             relief="flat"
         )
-        self.button_1.place(x=496.0, y=658.0, width=296.0, height=30.0)
+        self.button_forgetpassword.place(x=483.0, y=574.0, width=180.0, height=30.0)
 
         # Button Login
-        self.button_image_2 = PhotoImage(file=f"./Images/Login/button_login.png")
-        self.button_2 = Button(
-            image=self.button_image_2,
+        self.button_login_image = PhotoImage(file=f"./Images/Login/button_login.png")
+        self.button_login = Button(
+            image=self.button_login_image,
             borderwidth=0,
             highlightthickness=0,
             command=lambda: lgp.Login_Process.login_button_handle(self),
             relief="flat"
         )
-        self.button_2.place(x=713.0, y=581.0, width=149.0, height=50.0)
+        self.button_login.place(x=709.0, y=629.0, width=140.0, height=50.0)
 
         # Entry 1 - Password
-        self.entry_image_1 = PhotoImage(file=f"./Images/Login/image_password.png")
-        self.canvas.create_image(645.0, 536.0, image=self.entry_image_1)
         self.password_entry = Entry(
-            bd=0,
-            bg="#D9D9D9",
+            bd=5,
+            bg="#F1F4F6",
             fg="#000716",
-            show="*",
-            highlightthickness=0
-        )
-        self.password_entry.place(x=499.0, y=514.0, width=360.0, height=42.0)
+            highlightthickness=0,
+            font=('Arial', 20))
+        self.password_entry.place(x=483.0, y=509.0, width=366.0, height=50.0)
 
         # Entry 2 - Username
-        self.entry_image_2 = PhotoImage(file=f"./Images/Login/image_username.png")
-        self.canvas.create_image(639.0, 459.0, image=self.entry_image_2)
         self.name_entry = Entry(
-            bd=0,
-            bg="#D9D9D9",
+            bd=5,
+            bg="#F1F4F6",
             fg="#000716",
-            highlightthickness=0
-        )
-        self.name_entry.place(x=498.0, y=437.0, width=360.0, height=42.0)
+            highlightthickness=0,
+            font=('Arial', 20))
+        self.name_entry.place(x=483.0, y=440.0, width=366.0, height=50.0)
     
         self.window.resizable(False, False)
         self.window.mainloop()
