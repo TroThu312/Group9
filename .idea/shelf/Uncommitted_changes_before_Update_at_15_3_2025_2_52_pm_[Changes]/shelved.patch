@@ -1,0 +1,201 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Book_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Borrower_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Login_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Main_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/admin.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/books.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/transactions.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/users.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Login/Login_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Login/Login_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/MainView/MainView_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/MainView/MainView_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/requirements.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/set_up.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;TroThu312&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/TroThu312/Group9.git&quot;,\r\n    &quot;accountId&quot;: &quot;d8a64322-0d1c-402c-9267-d201a6a06b0d&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2tcvFE3adIjMqb0Tn9Y7JFEna1k\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Code/Croup9_KTLT&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"Group9\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220\" />\r\n        <option value=\"bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1\" name=\"Changes\" comment=\"\" />\r\n      <created>1740664072873</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740664072873</updated>\r\n      <workItem from=\"1740664075124\" duration=\"927000\" />\r\n      <workItem from=\"1740666178822\" duration=\"1603000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ac674776d5f91ac834c2b8a685ea6f000ab36dee)
++++ b/.idea/workspace.xml	(date 1742024761129)
+@@ -4,37 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/APi/Book_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Borrower_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Login_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Main_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/admin.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/books.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/transactions.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/users.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/set_up.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++    <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="delete image login">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/Holder.txt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/background.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/button_forgotpass.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/button_login.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/entry_password.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/entry_username.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/image_password.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images/Login/image_username.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/Modules/Login/Login_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Login/Login_Create.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -49,6 +29,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -74,19 +59,26 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Code/Croup9_KTLT&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "Login__images",
++    "last_opened_file_path": "C:/Users/Admin/Downloads/KỲ 5/3. KỸ THUẬT LẬP TRÌNH/Pycharm/Group9/Images/Login",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\Admin\Downloads\KỲ 5\3. KỸ THUẬT LẬP TRÌNH\Pycharm\Group9\Images\Login" />
++      <recent name="C:\Users\Admin\Downloads\KỲ 5\3. KỸ THUẬT LẬP TRÌNH\Pycharm\Group9\Images\Forget" />
++      <recent name="\" />
++    </key>
++  </component>
+   <component name="RunManager">
+     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+       <module name="Group9" />
+@@ -131,9 +123,57 @@
+       <workItem from="1740664075124" duration="927000" />
+       <workItem from="1740666178822" duration="1603000" />
+     </task>
++    <task id="LOCAL-00001" summary="forget name">
++      <option name="closed" value="true" />
++      <created>1742013874334</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1742013874334</updated>
++    </task>
++    <task id="LOCAL-00002" summary="forget code">
++      <option name="closed" value="true" />
++      <created>1742015056584</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1742015056584</updated>
++    </task>
++    <task id="LOCAL-00003" summary="forget change">
++      <option name="closed" value="true" />
++      <created>1742017127776</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1742017127776</updated>
++    </task>
++    <task id="LOCAL-00004" summary="delete image login">
++      <option name="closed" value="true" />
++      <created>1742023456826</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1742023456826</updated>
++    </task>
++    <task id="LOCAL-00005" summary="delete image login">
++      <option name="closed" value="true" />
++      <created>1742024623222</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1742024623222</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="forget name" />
++    <MESSAGE value="forget code" />
++    <MESSAGE value="forget change" />
++    <MESSAGE value="delete image login" />
++    <option name="LAST_COMMIT_MESSAGE" value="delete image login" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: Modules/Login/Login_Create.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from tkinter import *\r\nfrom PIL import Image, ImageTk\r\ndef relative_to_assets(path: str) -> str:\r\n    return f\"./Images/Login/{path}\"\r\n\r\nclass Login_Process_Create:\r\n    \r\n    def __init__(self):\r\n        self.window = Tk()\r\n        self.window.geometry(\"1280x832\")\r\n        self.window.configure(bg=\"#FFFFFF\")\r\n        self.window.title(\"Login\")\r\n\r\n        self.canvas = Canvas(\r\n            self.window,\r\n            bg=\"#FFFFFF\",\r\n            height=832,\r\n            width=1280,\r\n            bd=0,\r\n            highlightthickness=0,\r\n            relief=\"ridge\"\r\n        )\r\n        self.canvas.place(x=0, y=0)\r\n\r\n        # Background Image\r\n        self.background_image = PhotoImage(file=relative_to_assets(\"background.png\"))\r\n        self.canvas.create_image(640.0, 416.0, image=self.background_image)\r\n\r\n        # Button forgot password\r\n        self.button_image_1 = PhotoImage(file=relative_to_assets(\"button_forgotpass.png\"))\r\n        self.button_1 = Button(\r\n            image=self.button_image_1,\r\n            borderwidth=0,\r\n            highlightthickness=0,\r\n            command=lambda: print(\"Button Forgot Pass Clicked\"),\r\n            relief=\"flat\"\r\n        )\r\n        self.button_1.place(x=496.0, y=658.0, width=296.0, height=30.0)\r\n\r\n        # Button Login\r\n        self.button_image_2 = PhotoImage(file=relative_to_assets(\"button_login.png\"))\r\n        self.button_2 = Button(\r\n            image=self.button_image_2,\r\n            borderwidth=0,\r\n            highlightthickness=0,\r\n            command=lambda: print(\"Button Login Clicked\"),\r\n            relief=\"flat\"\r\n        )\r\n        self.button_2.place(x=713.0, y=581.0, width=149.0, height=50.0)\r\n\r\n        # Entry \r\n        self.entry_image_1 = PhotoImage(file=relative_to_assets(\"image_password.png\"))\r\n        self.canvas.create_image(645.0, 536.0, image=self.entry_image_1)\r\n        self.entry_1 = Entry(\r\n            bd=0,\r\n            bg=\"#D9D9D9\",\r\n            fg=\"#000716\",\r\n            highlightthickness=0\r\n        )\r\n        self.entry_1.place(x=499.0, y=514.0, width=360.0, height=42.0)\r\n\r\n        # Entry 2\r\n        self.entry_image_2 = PhotoImage(file=relative_to_assets(\"image_username.png\"))\r\n        self.canvas.create_image(639.0, 459.0, image=self.entry_image_2)\r\n        self.entry_2 = Entry(\r\n            bd=0,\r\n            bg=\"#D9D9D9\",\r\n            fg=\"#000716\",\r\n            highlightthickness=0\r\n        )\r\n        self.entry_2.place(x=498.0, y=437.0, width=360.0, height=42.0)\r\n    \r\n        self.window.resizable(False, False)\r\n        self.window.mainloop()\r\n\r\nif __name__ == \"__main__\":\r\n    Login_Process_Create()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Modules/Login/Login_Create.py b/Modules/Login/Login_Create.py
+--- a/Modules/Login/Login_Create.py	(revision ac674776d5f91ac834c2b8a685ea6f000ab36dee)
++++ b/Modules/Login/Login_Create.py	(date 1742023207064)
+@@ -4,7 +4,7 @@
+     return f"./Images/Login/{path}"
+ 
+ class Login_Process_Create:
+-    
++
+     def __init__(self):
+         self.window = Tk()
+         self.window.geometry("1280x832")
+@@ -27,9 +27,9 @@
+         self.canvas.create_image(640.0, 416.0, image=self.background_image)
+ 
+         # Button forgot password
+-        self.button_image_1 = PhotoImage(file=relative_to_assets("button_forgotpass.png"))
+-        self.button_1 = Button(
+-            image=self.button_image_1,
++        self.button_forgetpassword_image = PhotoImage(file=relative_to_assets("button_forgotpass.png"))
++        self.button_forgetpassword = Button(
++            image=self.button_forgetpassword_image,
+             borderwidth=0,
+             highlightthickness=0,
+             command=lambda: print("Button Forgot Pass Clicked"),

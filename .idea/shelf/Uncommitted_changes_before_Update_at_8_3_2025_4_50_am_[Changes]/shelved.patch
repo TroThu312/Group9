@@ -1,0 +1,384 @@
+Index: Modules/MainView/MainView_Create.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Modules/MainView/MainView_Create.py b/Modules/MainView/MainView_Create.py
+--- a/Modules/MainView/MainView_Create.py	(revision 52e6774d1f6bbbd7342013962c55ae8e2a76e139)
++++ b/Modules/MainView/MainView_Create.py	(date 1741384152751)
+@@ -1,0 +1,109 @@
++from tkinter import *  
++#import Modules.Main_View_Process as mvp 
++from PIL import Image, ImageTk 
++import time
++import tkinter as tk
++
++
++class Main_View_Create:
++        def update_time(self):
++            current_date = time.strftime("%Y-%m-%d")
++            current_time = time.strftime("%H:%M:%S")
++            self.date_label.config(text=f"{current_date}")
++            self.time_label.config(text=f"{current_time}")
++            self.window.after(1000, self.update_time)
++        def __init__(self):  # Phương thức khởi tạo class
++            self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
++
++            # Lấy kích thước màn hình của máy tính
++            self.screen_width = self.window.winfo_screenwidth()
++            self.screen_height = self.window.winfo_screenheight()
++            # Thiết lập kích thước cửa sổ ứng dụng
++            self.window_width = 1280
++            self.window_height = 832
++            # Căn giữa cửa sổ ứng dụng trên màn hình
++            self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
++                                (self.screen_width - self.window_width) / 2, (self.screen_height - self.window_height) / 2))
++            self.window.configure(bg = "#ffffff")  # Đặt màu nền cho cửa sổ
++            self.window.title('Admin')  # Đặt tiêu đề của cửa sổ ứng dụng
++            #self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
++
++            # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
++            self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
++                             bd=0, highlightthickness=0, relief="ridge")
++            self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
++
++            # -----Thêm hình nền-----.
++            self.background_image = PhotoImage(file = f"./Code_view/Images/main_view/background.png")
++            self.canvas.create_image(640.0, 416.0, image = self.background_image)
++
++            #Hiển thị ngày giờ
++            self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
++            self.date_label.place(x=745, y=85, anchor="nw")
++            self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
++            self.time_label.place(x=1104, y=85  , anchor="nw")
++            self.update_time()
++
++            # -----Các nút-----               
++            
++            self.show_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/show_book_button.png")
++            self.show_book_button = Button(image = self.show_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.show_book_button_handle(self))
++            self.show_book_button.place(x = 1012.0, y = 477, width = 195, height = 59)
++            
++            self.logout_button_image = PhotoImage(file = f"./Code_view/Images/main_view/logout_button.png")
++            self.logout_button = Button(image = self.logout_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.logout_button_handle(self))
++            self.logout_button.place(x = 1012.0, y = 558, width = 195, height = 59)
++
++
++            self.return_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/return_book_button.png")
++            self.return_book_button = Button(image = self.return_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.return_book_button_handle(self))
++            self.return_book_button.place(x = 1012.0, y = 389, width = 195, height = 59)
++
++
++            self.borrow_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/borrow_book_button.png")
++            self.borrow_book_button = Button(image = self.borrow_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.borrow_book_button_handle(self))
++            self.borrow_book_button.place(x = 1012.0, y = 308, width = 195, height = 59)
++
++
++            self.add_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/add_book_button.png")
++            self.add_book_button = Button(image = self.add_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.add_book_button_handle(self))
++            self.add_book_button.place(x = 781.0, y = 308, width = 195, height = 59)
++
++
++            self.update_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/update_book_button.png")
++            self.update_book_button = Button(image = self.update_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.update_book_button_handle(self))
++            self.update_book_button.place(x = 781.0, y = 390, width = 195, height = 59)
++
++
++            self.remove_book_button_image = PhotoImage(file = f"./Code_view/Images/main_view/remove_book_button.png")
++            self.remove_book_button = Button(image = self.remove_book_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.remove_book_button_handle(self))
++            self.remove_book_button.place(x = 781.0, y = 477, width = 195, height = 59)
++
++
++            self.update_user_button_image = PhotoImage(file = f"./Code_view/Images/main_view/update_user_button.png")
++            self.update_user_button = Button(image = self.update_user_button_image, borderwidth = 0,
++                                        highlightthickness = 0, relief = "flat",)
++                                        #command = lambda: mvp.Main_View_Process.update_user_button_handle(self))
++            self.update_user_button.place(x = 781.0, y = 558, width = 195, height = 59)
++
++
++            self.window.resizable(False, False)  # Không cho phép thay đổi kích thước cửa sổ
++            
++            self.window.mainloop()
++            
++if __name__ == "__main__":
++    Main_View_Create() 
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Book_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Borrower_Management_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Login_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/APi/Main_Api.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/admin.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/books.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/transactions.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Data/users.json\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Login/Login_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/Login/Login_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/MainView/MainView_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/MainView/MainView_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/requirements.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/set_up.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;TroThu312&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/TroThu312/Group9.git&quot;,\r\n    &quot;accountId&quot;: &quot;d8a64322-0d1c-402c-9267-d201a6a06b0d&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2tcvFE3adIjMqb0Tn9Y7JFEna1k\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Code/Croup9_KTLT&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"Group9\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220\" />\r\n        <option value=\"bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1\" name=\"Changes\" comment=\"\" />\r\n      <created>1740664072873</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740664072873</updated>\r\n      <workItem from=\"1740664075124\" duration=\"927000\" />\r\n      <workItem from=\"1740666178822\" duration=\"1603000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 52e6774d1f6bbbd7342013962c55ae8e2a76e139)
++++ b/.idea/workspace.xml	(date 1741384152762)
+@@ -4,37 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/APi/Book_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Borrow_Return_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Borrower_Management_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Login_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/APi/Main_Api.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/admin.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/books.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/transactions.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Data/users.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Add/Add_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Remove/Remove_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Book/Update/Update_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Borrow/Borrow_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Return/Return_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/BorrowReturn/Show/Show_Book_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/Login/Login_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Create.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Modules/User/Add_Update_User_Process.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/set_up.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++    <list default="true" id="fcfd76ca-2b96-4e80-bad2-0f3cd74d63e1" name="Changes" comment="image nè">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/MainView/MainView_Create.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -49,6 +21,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+@@ -60,7 +37,17 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/TroThu312/Group9.git&quot;,
+-    &quot;accountId&quot;: &quot;d8a64322-0d1c-402c-9267-d201a6a06b0d&quot;
++    &quot;accountId&quot;: &quot;946b8ecb-3b84-4d8c-b319-d6b034626019&quot;
++  },
++  &quot;recentNewPullRequestHead&quot;: {
++    &quot;server&quot;: {
++      &quot;useHttp&quot;: false,
++      &quot;host&quot;: &quot;github.com&quot;,
++      &quot;port&quot;: null,
++      &quot;suffix&quot;: null
++    },
++    &quot;owner&quot;: &quot;TroThu312&quot;,
++    &quot;repository&quot;: &quot;Group9&quot;
+   }
+ }</component>
+   <component name="ProjectColorInfo">{
+@@ -74,20 +61,89 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Code/Croup9_KTLT&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Python.Login_Create.executor": "Run",
++    "Python.MainView_create.executor": "Run",
++    "Python.Main_View_Create.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "MainView",
++    "last_opened_file_path": "D:/Code/Croup9_KTLT",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
+-  <component name="RunManager">
++}]]></component>
++  <component name="RunManager" selected="Python.Main_View_Create">
++    <configuration name="Login_Create" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Group9" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modules/Login" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Modules/Login/Login_Create.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="MainView_create" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Group9" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modules/MainView" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Modules/MainView/MainView_create.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="Main_View_Create" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Group9" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modules/MainView" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Modules/MainView/Main_View_Create.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
+     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+       <module name="Group9" />
+       <option name="ENV_FILES" value="" />
+@@ -111,12 +167,19 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.Main_View_Create" />
++        <item itemvalue="Python.MainView_create" />
++        <item itemvalue="Python.Login_Create" />
++        <item itemvalue="Python.MainView_create" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
++        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -131,9 +194,56 @@
+       <workItem from="1740664075124" duration="927000" />
+       <workItem from="1740666178822" duration="1603000" />
+     </task>
++    <task id="LOCAL-00001" summary="dô dô">
++      <option name="closed" value="true" />
++      <created>1740843345436</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1740843345436</updated>
++    </task>
++    <task id="LOCAL-00002" summary="image nè">
++      <option name="closed" value="true" />
++      <created>1740843812953</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1740843812953</updated>
++    </task>
++    <task id="LOCAL-00003" summary="image nè">
++      <option name="closed" value="true" />
++      <created>1741343712187</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1741343712187</updated>
++    </task>
++    <task id="LOCAL-00004" summary="image nè">
++      <option name="closed" value="true" />
++      <created>1741354466428</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1741354466428</updated>
++    </task>
++    <task id="LOCAL-00005" summary="image nè">
++      <option name="closed" value="true" />
++      <created>1741355356002</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1741355356002</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="dô dô" />
++    <MESSAGE value="lại nha" />
++    <MESSAGE value="image nè" />
++    <option name="LAST_COMMIT_MESSAGE" value="image nè" />
++  </component>
+ </project>
+\ No newline at end of file

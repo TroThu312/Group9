@@ -1,13 +1,20 @@
-from datetime import datetime
+import time
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
+import tkinter as tk
 
 
 # Định nghĩa lớp giao diện Admin
 class Borrow_Book_Create:
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def update_time(self):
+        current_date = time.strftime("%Y-%m-%d")
+        current_time = time.strftime("%H:%M:%S")
+        self.date_label.config(text=f"{current_date}")
+        self.time_label.config(text=f"{current_time}")
+        self.window.after(1000, self.update_time)
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
         # Lấy kích thước màn hình của máy tính
@@ -99,19 +106,13 @@ class Borrow_Book_Create:
             height=60
         )
         # -----Hiển thị thông tin-----
-        self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
-        self.date.place(x=760, y=85, anchor="nw")
-        self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
-        self.time.place(x=1073, y=85, anchor="nw")
-
-        def update_time():
-            self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
-            self.now_date = datetime.now().strftime("%d/%m/%Y")  # Lấy thời gian hiện tại
-            self.time.config(text=self.now_time)  # Cập nhật vào Label
-            self.date.config(text=self.now_date)
-            self.window.after(1000, update_time)
-
-        update_time()
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
+        self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.date_label.place(x=745, y=85, anchor="nw")
+        self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.time_label.place(x=1104, y=85  , anchor="nw")
+        self.update_time()
 
         # Không cho phép thay đổi kích thước cửa sổ
         self.window.resizable(False, False)
