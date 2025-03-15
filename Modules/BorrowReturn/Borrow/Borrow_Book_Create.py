@@ -101,10 +101,11 @@ class Borrow_Book_Create:
         # -----Hiển thị thông tin-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
-        self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
-        self.date.place(x=760, y=85, anchor="nw")
-        self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
-        self.time.place(x=1073, y=85, anchor="nw")
+        self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.date_label.place(x=745, y=85, anchor="nw")
+        self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.time_label.place(x=1104, y=85  , anchor="nw")
+        self.update_time()
 
         def update_time():
             self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
