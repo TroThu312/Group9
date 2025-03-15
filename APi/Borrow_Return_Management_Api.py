@@ -122,9 +122,22 @@ class BorrowReturnManagementApi(main_api):
             for book in transaction.get("Books", []):
                 if book.get("Status") == "Borrowed":
                     results.append({
+                        "Book_Id": book.get("Book_Id"),
                         "Student_Id": transaction.get("Student_Id"),
                         "Name": transaction.get("Name"),
                         "Title": book.get("Title"),
                         "Borrow_Date": book.get("Borrow_Date")
                     })
         return results
+    
+    def show_book_api(self, search):
+        query = {
+            "$or": [
+                {"Book_Id": {"$regex": search, "$options": "i"}},
+                {"Title": {"$regex": search, "$options": "i"}},
+                {"Author": {"$regex": search, "$options": "i"}},
+                {"Genre": {"$regex": search, "$options": "i"}}
+            ]
+        }
+        books = list(self.warehouse_collection.find(query))
+        return books

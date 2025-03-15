@@ -1,7 +1,4 @@
-import sys
-sys.path.append('D:/Code/Group9')  # Thêm đường dẫn thư mục gốc của dự án vào sys.path
 import Modules.BorrowReturn.Show.Show_Book_Process as sbp
-
 from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from tkinter.ttk import Style, Treeview
@@ -95,27 +92,22 @@ class Show_Book_Create:
         self.frame_tree.place(x=75, y=350, width=1130, height=365)
 
         self.tree = Treeview(self.frame_tree)
-        self.tree["columns"] = ("Book ID", "Name", "Author", "Edition", "Quantity")
+        self.tree["columns"] = ("Book ID", "Title", "Author", "Genre", "Stock")
 
         self.tree.column("#0", width=0, stretch=NO)  # Cột ẩn (dùng khi tạo cây)
         self.tree.column("Book ID", anchor=CENTER, width=240)
-        self.tree.column("Name", anchor=W, width=530)
+        self.tree.column("Title", anchor=W, width=430)
         self.tree.column("Author", anchor=W, width=240)
-        self.tree.column("Edition", anchor=CENTER, width=120)
-        self.tree.column("Quantity", anchor=CENTER, width=120)
+        self.tree.column("Genre", anchor=CENTER, width=120)
+        self.tree.column("Stock", anchor=CENTER, width=100)
 
         # Thêm tiêu đề
         self.tree.heading("#0", text="", anchor=W)
         self.tree.heading("Book ID", text="Book ID", anchor=CENTER)
-        self.tree.heading("Name", text="Name", anchor=CENTER)
+        self.tree.heading("Title", text="Title", anchor=CENTER)
         self.tree.heading("Author", text="Author", anchor=CENTER)
-        self.tree.heading("Edition", text="Edition", anchor=CENTER)
-        self.tree.heading("Quantity", text="Quantity", anchor=CENTER)
-
-        # Thêm dữ liệu vào Treeview
-        self.tree.insert(parent="", index="end", iid=1, values=("001", "Alice", "ABCCCC", 2, 25))
-        self.tree.insert(parent="", index="end", iid=2, values=("002", "Bob", "ABCCCC", 2, 30))
-        self.tree.insert(parent="", index="end", iid=3, values=("003", "Charlie", "ABCCCC", 2, 28))
+        self.tree.heading("Genre", text="Genre", anchor=CENTER)
+        self.tree.heading("Stock", text="Stock", anchor=CENTER)
 
         # -------tạo scrollbar----------------
         self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
@@ -131,15 +123,16 @@ class Show_Book_Create:
         self.tree.pack(side="left", fill="both", expand=False)
 
         # -------Thiết lập style cho treeview----------------
-        self.tree = Style()
-        self.tree.theme_use("default")
-        self.tree.configure("Treeview",
+        self.style = Style()
+        self.style.theme_use("default")
+        self.style.configure("Treeview",
                             background="#B9E3E9",  # Màu nền của bảng
                             foreground="black",  # Màu chữ
                             rowheight=50,  # Độ cao mỗi dòng
                             font=("Arial", 20))
+
         # -------heading----------------
-        self.tree.configure("Treeview.Heading",
+        self.style.configure("Treeview.Heading",
                             background="#B9E3E9",  # Màu nền của bảng
                             foreground="black",  # Màu chữ
                             font=("Arial", 20))

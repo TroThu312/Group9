@@ -137,60 +137,55 @@ class Return_Book_Create:
 
         update_time()
 
-        # -----Hiển thị thông tin cho treeview-----
-        self.frame_tree = Frame(self.window)
-        self.frame_tree.place(x=576, y=282, width=680, height=490)
+        # # -----Hiển thị thông tin cho treeview-----
+        # self.frame_tree = Frame(self.window)
+        # self.frame_tree.place(x=576, y=282, width=680, height=490)
 
-        self.tree = Treeview(self.frame_tree)
-        self.tree["columns"] = ("Book ID", "Name", "Author", "Edition", "Quantity")
+        # self.tree = Treeview(self.frame_tree)
+        # self.tree["columns"] = ("Book ID", "Name", "Author", "Edition", "Quantity")
 
-        self.tree.column("#0", width=0, stretch=NO)  # Cột ẩn (dùng khi tạo cây)
-        self.tree.column("Book ID", anchor=CENTER, width=140)
-        self.tree.column("Name", anchor=W, width=300)
-        self.tree.column("Author", anchor=W, width=140)
-        self.tree.column("Edition", anchor=CENTER, width=80)
-        self.tree.column("Quantity", anchor=CENTER, width=80)
+        # self.tree.column("#0", width=0, stretch=NO)  # Cột ẩn (dùng khi tạo cây)
+        # self.tree.column("Book ID", anchor=CENTER, width=140)
+        # self.tree.column("Name", anchor=W, width=300)
+        # self.tree.column("Author", anchor=W, width=140)
+        # self.tree.column("Edition", anchor=CENTER, width=80)
+        # self.tree.column("Quantity", anchor=CENTER, width=80)
 
-        # Thêm tiêu đề
-        self.tree.heading("#0", text="", anchor=W)
-        self.tree.heading("Book ID", text="Book ID", anchor=CENTER)
-        self.tree.heading("Name", text="Name", anchor=CENTER)
-        self.tree.heading("Author", text="Author", anchor=CENTER)
-        self.tree.heading("Edition", text="Edition", anchor=CENTER)
-        self.tree.heading("Quantity", text="Quantity", anchor=CENTER)
+        # # Thêm tiêu đề
+        # self.tree.heading("#0", text="", anchor=W)
+        # self.tree.heading("Book ID", text="Book ID", anchor=CENTER)
+        # self.tree.heading("Name", text="Name", anchor=CENTER)
+        # self.tree.heading("Author", text="Author", anchor=CENTER)
+        # self.tree.heading("Edition", text="Edition", anchor=CENTER)
+        # self.tree.heading("Quantity", text="Quantity", anchor=CENTER)
 
-        # Thêm dữ liệu vào Treeview
-        self.tree.insert(parent="", index="end", iid=1, values=("001", "Alice", "ABCCCC", 2, 25))
-        self.tree.insert(parent="", index="end", iid=2, values=("002", "Bob", "ABCCCC", 2, 30))
-        self.tree.insert(parent="", index="end", iid=3, values=("003", "Charlie", "ABCCCC", 2, 28))
+        # # -------tạo scrollbar----------------
+        # self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
+        # self.tree.configure(yscrollcommand=self.scroll_y.set)
 
-        # -------tạo scrollbar----------------
-        self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
-        self.tree.configure(yscrollcommand=self.scroll_y.set)
+        # # Tạo Scrollbar ngang
+        # self.scroll_x = Scrollbar(self.frame_tree, orient="horizontal", command=self.tree.xview)
+        # self.tree.configure(xscrollcommand=self.scroll_x.set)
 
-        # Tạo Scrollbar ngang
-        self.scroll_x = Scrollbar(self.frame_tree, orient="horizontal", command=self.tree.xview)
-        self.tree.configure(xscrollcommand=self.scroll_x.set)
+        # # Đặt vị trí các thành phần
+        # self.scroll_y.pack(side="right", fill="y")
+        # self.scroll_x.pack(side="bottom", fill="x")
+        # self.tree.pack(side="left", fill="both", expand=False)
 
-        # Đặt vị trí các thành phần
-        self.scroll_y.pack(side="right", fill="y")
-        self.scroll_x.pack(side="bottom", fill="x")
-        self.tree.pack(side="left", fill="both", expand=False)
-
-        # -------Thiết lập style cho treeview----------------
-        self.tree = Style()
-        self.tree.theme_use("default")
-        self.tree.configure("Treeview",
-                       background="#B9E3E9",  # Màu nền của bảng
-                       foreground="black",  # Màu chữ
-                       rowheight=30,  # Độ cao mỗi dòng
-                       font=("Arial", 15))
-        #-------heading----------------
-        self.tree.configure("Treeview.Heading",
-                       background="#B9E3E9",  # Màu nền của bảng
-                       foreground="black",  # Màu chữ
-                       # Độ cao mỗi dòng
-                       font=("Arial", 15))
+        # # -------Thiết lập style cho treeview----------------
+        # self.tree = Style()
+        # self.tree.theme_use("default")
+        # self.tree.configure("Treeview",
+        #                background="#B9E3E9",  # Màu nền của bảng
+        #                foreground="black",  # Màu chữ
+        #                rowheight=30,  # Độ cao mỗi dòng
+        #                font=("Arial", 15))
+        # #-------heading----------------
+        # self.tree.configure("Treeview.Heading",
+        #                background="#B9E3E9",  # Màu nền của bảng
+        #                foreground="black",  # Màu chữ
+        #                # Độ cao mỗi dòng
+        #                font=("Arial", 15))
 
         # Không cho phép thay đổi kích thước cửa sổ
         self.window.resizable(False, False)
