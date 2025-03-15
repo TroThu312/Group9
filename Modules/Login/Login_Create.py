@@ -51,6 +51,7 @@ class Login_Process_Create:
         # Entry 1 - Password
         self.password_entry = Entry(
             bd=5,
+            show="*",
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
