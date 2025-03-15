@@ -13,7 +13,7 @@ class Add_Update_User_Create:
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
         # Lấy kích thước màn hình của máy tính
@@ -64,11 +64,13 @@ class Add_Update_User_Create:
         # ---- Button Back ---
         self.back_button_image = PhotoImage(file=f"./Images/User/back_button.png")
         self.back_button = Button(image=self.back_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                  command=lambda: auup.back_button_handle(self))
+                                  command=lambda: auup.back_button_handle(self, username))
 
         self.back_button.place(x=41.0, y=181.0, width=151.0, height=50.0)
 
         # Hiển thị ngày & giờ
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.date_label.place(x=745, y=85, anchor="nw")
         self.time_label = tk.Label(self.window, font=("Inter", 20, "bold"), bg="#9BC8FF")

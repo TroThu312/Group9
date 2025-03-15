@@ -7,7 +7,7 @@ from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ản
 # Định nghĩa lớp giao diện Admin
 class Borrow_Book_Create:
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
         # Lấy kích thước màn hình của máy tính
@@ -39,7 +39,7 @@ class Borrow_Book_Create:
         self.back_button = Button(image=self.back_image,
                                    borderwidth=0,
                                    highlightthickness=0,
-                                   command=lambda: bbp.back_button_handle(self),
+                                   command=lambda: bbp.back_button_handle(self, username),
                                    relief="flat"
                                    )
         self.back_button.place(x=40, y=180, width=151, height=50)
@@ -99,6 +99,8 @@ class Borrow_Book_Create:
             height=60
         )
         # -----Hiển thị thông tin-----
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
         self.date.place(x=760, y=85, anchor="nw")
         self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")

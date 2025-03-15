@@ -9,7 +9,7 @@ from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ản
 # Định nghĩa lớp giao diện Admin
 class Show_Book_Create:
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
         # Lấy kích thước màn hình của máy tính
@@ -40,7 +40,7 @@ class Show_Book_Create:
         self.back_button = self.canvas.create_image(41, 181, image=self.back_image,
                                           anchor="nw")  # tạo button trên canva
         self.canvas.tag_bind(self.back_button, "<Button-1>",
-                        lambda event: sbp.Show_Book_Process.back_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
+                        lambda event: sbp.Show_Book_Process.back_button_handle(self, username))  # Gọi hàm xử lý khi nhấn nút
 
 
         # -----Nút Search-----
@@ -70,9 +70,8 @@ class Show_Book_Create:
         )
 
         # -----Hiển thị ngày giờ-----
-        self.name = Label(self.window, text="Hôm nay là chủ nhật", font=("Inter", 20, "bold"), bg="#9CC8FF",
-                          fg="#3413AF")
-        self.name.place(x=178, y=85, anchor="nw")
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
         self.date.place(x=760, y=85, anchor="nw")
         self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")

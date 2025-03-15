@@ -26,9 +26,9 @@ class Login_Process:
             obj.password_entry.delete(0, END)
         else:
             # Đăng nhập thành công
-            messagebox.showinfo("Welcome", f"Welcome, Admin!")
+            messagebox.showinfo("Welcome", f"Welcome, {username}")
             obj.window.destroy()
-            app = mvc.Main_View_Create()
+            app = mvc.Main_View_Create(username)
             app.window.mainloop()
     @staticmethod
     def forget_button_handle(obj):
