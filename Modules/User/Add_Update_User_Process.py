@@ -34,10 +34,7 @@ class Add_Update_User_Process:
                 self.address_entry.delete(0, END)
             elif c == "Not Available":
                 messagebox.showerror("Warning", "User already exists")
-                self.student_id_entry.delete(0, END)
-                self.name_entry.delete(0, END)
-                self.contact_entry.delete(0, END)
-                self.address_entry.delete(0, END)
+
 
 
     @staticmethod
@@ -54,10 +51,6 @@ class Add_Update_User_Process:
             c = api.update_user(student_id, name, contact, address)
             if c == "Not Found":
                 messagebox.showerror("Warning", "User not found!")
-                self.student_id_entry.delete(0, END)
-                self.name_entry.delete(0, END)
-                self.contact_entry.delete(0, END)
-                self.address_entry.delete(0, END)
             elif c == "Updated":
                 messagebox.showerror("SUCCESS!", "User updated!")
                 self.student_id_entry.delete(0, END)
