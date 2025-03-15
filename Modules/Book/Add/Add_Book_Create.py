@@ -3,6 +3,7 @@ from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao 
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 import time
 import tkinter as tk
+from Modules.Book.Add.Add_Book_Process import Add_Book_Process as adp
 def relative_to_assets(path: str) -> str:
     return f"./Images/Book/Add/{path}"
 class Add_Book_Create:
@@ -34,36 +35,36 @@ class Add_Book_Create:
                              bd=0, highlightthickness=0, relief="ridge")
         self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
         # --- Hình nền  ---
-        self.background_image = PhotoImage(file=relative_to_assets("background.png"))
+        self.background_image = PhotoImage(file=f"./Images/Book/Add/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # ---- Button add --- 
-        self.button_image_add = PhotoImage(file=relative_to_assets("button_add.png"))
+        self.button_image_add = PhotoImage(file=f"./Images/Book/Add/button_add.png")
         self.button_add = Button(
             image=self.button_image_add,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button add Clicked"),
+            command=lambda: adp.add_button_handle(self),
             relief="flat"
         )
         self.button_add.place(x=428.0,y=716.0,width=195.0,height=62.0)
        
         # ---- Button Reset --- 
-        self.button_image_reset = PhotoImage (file=relative_to_assets("button_reset.png"))
+        self.button_image_reset = PhotoImage (file=f"./Images/Book/Add/button_reset.png")
         self.button_reset = Button(
             image=self.button_image_reset,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Reset Clicked"),
+            command=lambda: adp.reset_button_handle(self),
             relief="flat")
         self.button_reset.place(x=657.0,y=716.0,width=195.0,height=62.0)
         # ---- Button Back --- 
-        self.button_image_back = PhotoImage (file=relative_to_assets("button_back.png"))
+        self.button_image_back = PhotoImage (file=f"./Images/Book/Add/button_back.png")
         self.button_back = Button(
             image=self.button_image_back,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Reset Clicked"),
+            command=lambda: adp.back_button_handle(self),
             relief="flat")
         self.button_back.place(x=41.0,y=181.0,width=151.0,height=50.0)
       # Hiển thị ngày & giờ
@@ -119,5 +120,3 @@ class Add_Book_Create:
         )
         self.entry_stock.place(x=508.0, y=625.0, width=434.0, height=60.0)
         self.window.mainloop()
-if __name__ == "__main__":
-    Add_Book_Create()

@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 import time
 import tkinter as tk
+import Modules.Book.Update.Update_Book_Process as upc
 def relative_to_assets(path: str) -> str:
     return f"./Images/Book/Update/{path}"
 class Update_Book_Create:
@@ -32,11 +33,11 @@ class Update_Book_Create:
                              bd=0, highlightthickness=0, relief="ridge")
         self.canvas.place(x=0, y=0) 
         # --- Hình nền  ---
-        self.background_image = PhotoImage(file=relative_to_assets("background.png"))
+        self.background_image = PhotoImage(file=f"./Images/Book/Update/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # ---- Button add --- 
-        self.button_image_add = PhotoImage(file=relative_to_assets("button_add.png"))
+        self.button_image_add = PhotoImage(file=f"./Images/Book/Update/button_add.png")
         self.button_add = Button(
             image=self.button_image_add,
             borderwidth=0,
@@ -47,7 +48,7 @@ class Update_Book_Create:
         self.button_add.place(x=432.0,y=589.0,width=195.0,height=62.0)
        
         # ---- Button Remove --- 
-        self.button_image_remove = PhotoImage (file=relative_to_assets("button_remove.png"))
+        self.button_image_remove = PhotoImage (file=f"./Images/Book/Update/button_remove.png")
         self.button_remove = Button(
             image=self.button_image_remove,
             borderwidth=0,
@@ -56,12 +57,12 @@ class Update_Book_Create:
             relief="flat")
         self.button_remove.place(x=653.0,y=589.0,width=195.0,height=62.0)
         # ---- Button Back --- 
-        self.button_image_back = PhotoImage (file=relative_to_assets("button_back.png"))
+        self.button_image_back = PhotoImage (file=f"./Images/Book/Update/button_back.png")
         self.button_back = Button(
             image=self.button_image_back,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Back Clicked"),
+            command=lambda: upc.Update_Book_Process.back_button_handle(self),
             relief="flat")
         self.button_back.place(x=41.0,y=181.0,width=151.0,height=50.0)
       # Hiển thị ngày & giờ
@@ -92,5 +93,3 @@ class Update_Book_Create:
         )
         self.entry_quantity.place(x=497.0, y=492.0, width=434.0, height=60.0)
         self.window.mainloop()
-if __name__ == "__main__":
-    Update_Book_Create()

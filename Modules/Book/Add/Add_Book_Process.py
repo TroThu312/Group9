@@ -15,14 +15,35 @@ class Add_Book_Process:
 
         # Kiểm tra nếu có trường nào bị bỏ trống hoặc số lượng không hợp lệ
         if not all([book_id, title, author, genre, stock]):
+            messagebox.showerror("Invalid Input", "Please fill in all fields.")
             return None
+         # Kiểm tra kiểu dữ liệu và tính hợp lệ
+        if not book_id.isalnum():
+            messagebox.showerror("Invalid Data", "Book ID must contain letters.")
+            return None
+        
+        if title.isdigit():
+            messagebox.showerror("Invalid Data", "Title must not be a number.")
+            return None
+        
+        if author.isdigit():
+            messagebox.showerror("Invalid Data", "Author must not be a number.")
+            return None
+        
+        if genre.isdigit():
+            messagebox.showerror("Invalid Data", "Genre must not be a number.")
+            return None
+        
         try:
             stock = int(stock)
+            if stock <= 0:
+                raise ValueError
         except ValueError:
+            messagebox.showerror("Invalid Data", "Stock must be a positive integer.")
             return None
 
         return {
-            "BookID": book_id,
+            "Book_Id": book_id,
             "Title": title,
             "Author": author,
             "Genre": genre,
@@ -33,7 +54,6 @@ class Add_Book_Process:
     def add_button_handle(obj):
         book_data = Add_Book_Process.get_json_data(obj)
         if book_data is None:
-            messagebox.showerror("Invalid Input", "Please fill in all fields with valid data.")
             return
 
         api = book_api.Book_Management_Api()
@@ -42,6 +62,12 @@ class Add_Book_Process:
         if result == 0:
             messagebox.showinfo("Success", "Updated Successfully")
             Add_Book_Process.reset_button_handle(obj)
+        elif result == -1:
+            messagebox.showerror("Error", "Incomplete data.")
+        elif result == -2:
+            messagebox.showerror("Error", "Stock limit exceeded.")
+        elif result == -3:
+            messagebox.showerror("Error", "This book existed in library.")
         else:
             messagebox.showerror("Error", "An error occurred while adding the book.")
 

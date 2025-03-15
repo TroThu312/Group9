@@ -1,6 +1,7 @@
 from tkinter import messagebox
 from tkinter import *
 import APi.Login_Api as LoginApi
+import Modules.MainPage.Main_View_Create as mvc
 class Login_Process:
     @staticmethod
     def login_button_handle(obj):
@@ -24,3 +25,7 @@ class Login_Process:
         else:
             # Đăng nhập thành công
             messagebox.showinfo("Welcome", f"Welcome, Admin!")
+            obj.window.destroy()
+            app = mvc.Main_View_Create()
+            app.window.mainloop()
+            
