@@ -2,6 +2,7 @@ from tkinter import messagebox, END
 import APi.Book_Management_Api as book_api
 import Modules.MainPage.Main_View_Create as mainview
 class Update_Book_Process:
+
     @staticmethod
     def get_data(obj): # Lấy dữ liệu từ các ô nhập
         book_id = obj.entry_book_id.get().strip()
@@ -19,7 +20,6 @@ class Update_Book_Process:
         if book_id is None or quantity is None:
             messagebox.showerror("Error", "Invalid Input")
             return
-
         api = book_api.Book_Management_Api()
         result = api.update_book_quantity(book_id, quantity, "add")
         if result == 0:
@@ -57,7 +57,7 @@ class Update_Book_Process:
         obj.entry_quantity.delete(0, END)
 
     @staticmethod
-    def back_button_handle(obj, username):
+    def back_button_handle(obj):
         obj.window.destroy()
-        app = mainview.Main_View_Create(username)  # Gọi giao diện MainView
+        app = mainview.Main_View_Create()  # Gọi giao diện MainView
         app.window.mainloop()
