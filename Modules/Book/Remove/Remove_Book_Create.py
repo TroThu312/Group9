@@ -12,7 +12,7 @@ class Remove_Book_Create:
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
         # Lấy kích thước màn hình của máy tính
         self.screen_width = self.window.winfo_screenwidth()
@@ -26,7 +26,6 @@ class Remove_Book_Create:
                                               (self.screen_height - self.window_height) / 2))
         self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
         self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 
         # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
@@ -48,12 +47,14 @@ class Remove_Book_Create:
         # ---- Button Back ---
         self.back_button_image = PhotoImage(file=f"./Images/Book/Remove/back_button.png")
         self.back_button = Button(image=self.back_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                  command=lambda: rbp.back_button_handle(self))
+                                  command=lambda: rbp.back_button_handle(self, username))
         # command = lambda: rbp.Remove_Book_Process.back_button_handle(self))
         self.back_button.place(x=41.0, y=181.0, width=151.0, height=50.0)
 
 
         # Hiển thị ngày & giờ
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.date_label.place(x=745, y=85, anchor="nw")
         self.time_label = tk.Label(self.window, font=("Inter", 20, "bold"), bg="#9BC8FF")
@@ -65,11 +66,4 @@ class Remove_Book_Create:
                                    font=('Arial', 20, 'bold'))
         self.book_id_entry.place(x=497.0, y=421.0, width=434.0, height=60.0)
 
-
-
-
         self.window.mainloop()
-
-
-if __name__ == "__main__":
-    Remove_Book_Create()

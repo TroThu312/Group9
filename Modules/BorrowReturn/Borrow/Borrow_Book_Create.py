@@ -1,12 +1,13 @@
+from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-from PIL import ImageTk  # Phải thêm thư viện này để tạo ảnh button
-from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp
+from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  # Import module xử lý sự kiện của admin
+from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 
 
 # Định nghĩa lớp giao diện Admin
 class Borrow_Book_Create:
 
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
 
         # Lấy kích thước màn hình của máy tính
@@ -21,7 +22,7 @@ class Borrow_Book_Create:
                                               (self.screen_height - self.window_height) / 2))
         self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
         self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
+        # self.window.iconphoto(False, PhotoImage(file = f"../../../Images/BorrowReturn/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 
         # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
@@ -30,65 +31,90 @@ class Borrow_Book_Create:
 
         # -----Thêm hình nền-----
         self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_borrow.png")
-        self.canvas.create_image(640.0, 428.0, image=self.background_image)
+        self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # -----Nút quay lại-----
+
         self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
-        self.back_button = self.canvas.create_image(41, 181, image=self.back_image,
-                                          anchor="nw")  # tạo button trên canva
-        self.canvas.tag_bind(self.back_button, "<Button-1>",
-                        lambda event: bbp.back_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
+        self.back_button = Button(image=self.back_image,
+                                   borderwidth=0,
+                                   highlightthickness=0,
+                                   command=lambda: bbp.back_button_handle(self, username),
+                                   relief="flat"
+                                   )
+        self.back_button.place(x=40, y=180, width=151, height=50)
 
         # -----Nút reset-----
+
         self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  # tạo ảnh button
-        self.reset_button = self.canvas.create_image(706, 536, image=self.reset_image,
-                                           anchor="nw")  # tạo button trên canva
-        self.canvas.tag_bind(self.reset_button, "<Button-1>",
-                        lambda event: bbp.reset_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
+        self.reset_button = Button(image=self.reset_image,
+                              borderwidth=0,
+                              highlightthickness=0,
+                              command=lambda: bbp.reset_button_handle(self),
+                              relief="flat"
+                              )
+        self.reset_button.place(x=696, y=544, width=195, height=62)
 
         # -----Nút submit-----
+
         self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  # tạo ảnh button
-        self.submit_button = self.canvas.create_image(398, 536, image=self.submit_image,
-                                            anchor="nw")  # tạo button trên canva
-        self.canvas.tag_bind(self.submit_button, "<Button-1>",
-                        lambda event: bbp.borrow_button_handle(self))  # Gọi hàm xử lý khi nhấn nút
+        self.submit_button = Button(image=self.submit_image,
+                               borderwidth=0,
+                               highlightthickness=0,
+                               command=lambda: bbp.borrow_button_handle(self),
+                               relief="flat"
+                               )
+        self.submit_button.place(x=397, y=544, width=195, height=62)
 
         # -----Bookid entry-----
-        self.entry_bookid_image = PhotoImage(file=f"./Images/BorrowReturn/TextBox_borrow.png")
-        self.canvas.create_image(601.62, 350.54, image=self.entry_bookid_image, anchor="nw")
+
+
         self.entry_bookid = Entry(
-            bd=0,
-            bg="#B8E2E9",
-            fg="#000716",
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
+
             highlightthickness=0,
-            font=("Arial", 14)
+            font=("Arial", 20)
         )
         self.entry_bookid.place(
-            x=615,
-            y=355,
-            width=287.0,
-            height=40.0
+            x=509,
+            y=371,
+            width=434,
+            height=60
         )
 
         # -----Studend id entry-----
-        self.entry_studentid_image = PhotoImage(file=f"./Images/BorrowReturn/TextBox_borrow.png")
-        self.canvas.create_image(601.62, 427.6, image=self.entry_studentid_image, anchor="nw")
         self.entry_studentid = Entry(
-            bd=0,
-            bg="#B8E2E9",
-            fg="#000716",
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
             highlightthickness=0,
-            font=("Arial", 14)
+            font=("Arial", 20)
         )
         self.entry_studentid.place(
-            x=615,
-            y=431,
-            width=287.0,
-            height=40.0
+            x=509,
+            y=446,
+            width=434,
+            height=60
         )
+        # -----Hiển thị thông tin-----
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
+        self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
+        self.date.place(x=760, y=85, anchor="nw")
+        self.time = Label(self.window, font=("Inter", 20, "bold"), bg="#9CC8FF", fg="#3413AF")
+        self.time.place(x=1073, y=85, anchor="nw")
 
+        def update_time():
+            self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
+            self.now_date = datetime.now().strftime("%d/%m/%Y")  # Lấy thời gian hiện tại
+            self.time.config(text=self.now_time)  # Cập nhật vào Label
+            self.date.config(text=self.now_date)
+            self.window.after(1000, update_time)
 
+        update_time()
 
         # Không cho phép thay đổi kích thước cửa sổ
         self.window.resizable(False, False)
-
+        self.window.mainloop()
