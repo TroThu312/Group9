@@ -46,7 +46,7 @@ class Borrow_Book_Create:
         self.back_button = Button(image=self.back_image,
                                    borderwidth=0,
                                    highlightthickness=0,
-                                   command=lambda: bbp.back_button_handle(self),
+                                   command=lambda: bbp.back_button_handle(self, username),
                                    relief="flat"
                                    )
         self.back_button.place(x=40, y=180, width=151, height=50)
