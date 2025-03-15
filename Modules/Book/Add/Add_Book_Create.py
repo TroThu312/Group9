@@ -47,7 +47,7 @@ class Add_Book_Create:
             command=lambda: adp.add_button_handle(self),
             relief="flat"
         )
-        self.button_add.place(x=428.0,y=716.0,width=195.0,height=62.0)
+        self.button_add.place(x=428.0,y=681.0,width=195.0,height=62.0)
        
         # ---- Button Reset --- 
         self.button_image_reset = PhotoImage (file=f"./Images/Book/Add/button_reset.png")
@@ -57,7 +57,7 @@ class Add_Book_Create:
             highlightthickness=0,
             command=lambda: adp.reset_button_handle(self),
             relief="flat")
-        self.button_reset.place(x=657.0,y=716.0,width=195.0,height=62.0)
+        self.button_reset.place(x=657.0,y=681.0,width=195.0,height=62.0)
         # ---- Button Back --- 
         self.button_image_back = PhotoImage (file=f"./Images/Book/Add/button_back.png")
         self.button_back = Button(
@@ -86,7 +86,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20,'bold')
         )
-        self.entry_book_id.place(x=508.0, y=317.0, width=434.0, height=60.0)
+        self.entry_book_id.place(x=508.0, y=290.0, width=434.0, height=62.0)
 
         self.entry_title = Entry(
             bd = 5,
@@ -95,7 +95,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20,'bold')
         )
-        self.entry_title.place(x=508.0, y=394.0, width=434.0, height=60.0)
+        self.entry_title.place(x=508.0, y=367.0, width=434.0, height=62.0)
         
         self.entry_author = Entry(
             bd = 5,
@@ -104,7 +104,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20,'bold')
         )
-        self.entry_author.place(x=508.0, y=471.0, width=434.0, height=60.0)
+        self.entry_author.place(x=508.0, y=444.0, width=434.0, height=62.0)
         self.entry_genre = Entry(
             bd = 5,
             bg="#F1F4F6",
@@ -112,7 +112,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20,'bold')
         )
-        self.entry_genre.place(x=508.0, y=548.0, width=434.0, height=60.0)
+        self.entry_genre.place(x=508.0, y=521.0, width=434.0, height=62.0)
         self.entry_stock = Entry(
             bd = 5,
             bg="#F1F4F6",
@@ -120,5 +120,5 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20,'bold')
         )
-        self.entry_stock.place(x=508.0, y=625.0, width=434.0, height=60.0)
+        self.entry_stock.place(x=508.0, y=598.0, width=434.0, height=62.0)
         self.window.mainloop()
