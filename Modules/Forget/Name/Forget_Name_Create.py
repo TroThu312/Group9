@@ -1,8 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import Modules.Forget.Name.Forget_Name_Process as fnp
 
-
-# import Modules.Forget.Name.Forget_Name_Process as fnp
 class Forget_Name_Create:
 
     def __init__(self):
@@ -23,27 +22,27 @@ class Forget_Name_Create:
         self.canvas.place(x=0, y=0)
         # file=f"./Images/MainPage/show_book_button.png"
         # Background Image
-        self.background_image = PhotoImage(file=f"./Code_view/Images/Forget/background_name.png")
+        self.background_image = PhotoImage(file=f"./Images/Forget/background_name.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
         # Button send
-        self.send_button_image = PhotoImage(file=f"./Code_view/Images/Forget/send_button.png")
+        self.send_button_image = PhotoImage(file=f"./Images/Forget/send_button.png")
         self.send_button = Button(
             image=self.send_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Sent"),
+            command=lambda: fnp.Forget_Name_Process.send_button_handle(self),
             relief="flat"
         )
         self.send_button.place(x=709.0, y=609.0, width=140.0, height=50.0)
 
         # Button back
-        self.back_button_image = PhotoImage(file=f"./Code_view/Images/Forget/back_button.png")
+        self.back_button_image = PhotoImage(file=f"./Images/Forget/back_button.png")
         self.back_button = Button(
             image=self.back_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Back"),
+            command=lambda: fnp.Forget_Name_Process.back_button_handle(self),
             relief="flat"
         )
         self.back_button.place(x=365.0, y=192.0, width=82.0, height=67.0)
