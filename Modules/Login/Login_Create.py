@@ -1,5 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
+from Modules.Login.Login_Process import Login_Process as lp
+
 def relative_to_assets(path: str) -> str:
     return f"./Images/Login/{path}"
 
@@ -43,7 +45,7 @@ class Login_Process_Create:
             image=self.button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("Button Login Clicked"),
+            command=lambda: lp.login_button_handle(self),
             relief="flat"
         )
         self.button_2.place(x=713.0, y=581.0, width=149.0, height=50.0)
