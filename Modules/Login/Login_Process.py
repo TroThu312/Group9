@@ -5,8 +5,8 @@ import Modules.MainPage.Main_View_Create as mvc
 class Login_Process:
     @staticmethod
     def login_button_handle(obj):
-        username = obj.entry_2.get().strip()
-        password = obj.entry_1.get().strip()
+        username = obj.name_entry.get().strip()
+        password = obj.password_entry.get().strip()
 
         api = LoginApi.Login_Api()
         result = api.check_user_login(username, password)
