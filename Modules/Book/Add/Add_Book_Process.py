@@ -80,7 +80,7 @@ class Add_Book_Process:
         obj.entry_stock.delete(0, END)
 
     @staticmethod
-    def back_button_handle(obj):
+    def back_button_handle(obj, username):
         obj.window.destroy()
-        app = mainview.Main_View_Create()
+        app = mainview.Main_View_Create(username)
         app.window.mainloop()

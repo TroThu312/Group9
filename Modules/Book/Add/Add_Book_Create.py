@@ -13,7 +13,7 @@ class Add_Book_Create:
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
-    def __init__(self):  # Phương thức khởi tạo class
+    def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
        
         # Lấy kích thước màn hình của máy tính
@@ -64,10 +64,12 @@ class Add_Book_Create:
             image=self.button_image_back,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: adp.back_button_handle(self),
+            command=lambda: adp.back_button_handle(self, username),
             relief="flat")
         self.button_back.place(x=41.0,y=181.0,width=151.0,height=50.0)
       # Hiển thị ngày & giờ
+        self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
+        self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
         self.date_label.place(x=745, y=85, anchor="nw")
         self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")

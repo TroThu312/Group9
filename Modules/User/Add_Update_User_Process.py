@@ -59,7 +59,7 @@ class Add_Update_User_Process:
                 self.address_entry.delete(0, END)
 
     @staticmethod
-    def back_button_handle(self):
+    def back_button_handle(self, username):
         self.window.destroy()
-        app = mv.Main_View_Create()
+        app = mv.Main_View_Create(username)
         app.window.mainloop()

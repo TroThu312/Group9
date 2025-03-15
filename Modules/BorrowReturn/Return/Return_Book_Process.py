@@ -93,7 +93,7 @@ class Return_Book_Process:
         return_book_instance.entry_studentid.delete(0, 'end')
     
     @staticmethod
-    def back_button_handle(obj):
+    def back_button_handle(obj, username):
         obj.window.destroy()
-        app = mainview.Main_View_Create()
+        app = mainview.Main_View_Create(username)
         app.window.mainloop()
