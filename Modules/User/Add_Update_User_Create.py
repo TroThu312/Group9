@@ -66,7 +66,7 @@ class Add_Update_User_Create:
         self.search_button = Button(image=self.search_button_image, borderwidth=0, highlightthickness=0, relief="flat",
                                   command=lambda: auup.back_button_handle(self, username))
 
-        self.search_button.place(x=1102.0, y=196.0, width=150.0, height=50.0)
+        self.search_button.place(x=1102.0, y=196.0, width=150.0, height=62.0)
 
         # ---- Dòng nhập liệu ----
         self.student_id_entry = Entry(bd=5, bg="#F1F4F6", fg="#000716", highlightthickness=0,
@@ -100,7 +100,7 @@ class Add_Update_User_Create:
 
         def update_time():
             self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
-            self.now_date = datetime.now().strftime("%d-%m-%Y")  # Lấy thời gian hiện tại
+            self.now_date = datetime.now().strftime("%d/%m/%Y")  # Lấy thời gian hiện tại
             self.time.config(text=self.now_time)  # Cập nhật vào Label
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
