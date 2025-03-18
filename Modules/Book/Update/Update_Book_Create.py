@@ -1,10 +1,10 @@
-from tkinter import *  
+from datetime import datetime
+from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
+#import Modules.Book.Update.Update_Book_Process.Update_Book_Process as ubp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
-import time
-import tkinter as tk
-import Modules.Book.Update.Update_Book_Process as upc
-def relative_to_assets(path: str) -> str:
-    return f"./Images/Book/Update/{path}"
+from Modules.Book.Update.Update_Book_Process import Update_Book_Process as ubp
+
+# Định nghĩa lớp giao diện Admin
 class Update_Book_Create:
     def update_time(self):
         current_date = time.strftime("%Y-%m-%d")
@@ -12,9 +12,10 @@ class Update_Book_Create:
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
+
     def __init__(self, username):  # Phương thức khởi tạo class
         self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
-       
+
         # Lấy kích thước màn hình của máy tính
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
@@ -25,47 +26,167 @@ class Update_Book_Create:
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
-        self.window.configure(bg="#ffffff")  
-        self.window.title('Borrow Book')  
-    
+        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
+        self.window.title('Update Book')  # Đặt tiêu đề của cửa sổ ứng dụng
+        # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 
+        # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
                              bd=0, highlightthickness=0, relief="ridge")
-        self.canvas.place(x=0, y=0) 
-        # --- Hình nền  ---
-        self.background_image = PhotoImage(file=f"./Images/Book/Update/background.png")
+        self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
+
+        # -----Thêm hình nền-----
+        self.background_image = PhotoImage(file=f"./Images/Book/Update/background_update.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
-        # ---- Button add --- 
-        self.button_image_add = PhotoImage(file=f"./Images/Book/Update/button_add.png")
-        self.button_add = Button(
-            image=self.button_image_add,
-            borderwidth=0,
+        # -----Nút quay lại-----
+
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_back.png")  # tạo ảnh button
+        self.back_button = Button(image=self.back_image,
+                                   borderwidth=0,
+                                   highlightthickness=0,
+                                   command=lambda: ubp.back_button_handle(self, username),
+                                   relief="flat"
+                                   )
+        self.back_button.place(x=40, y=180, width=151, height=50)
+
+        # -----Nút add-----
+
+        self.add_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  # tạo ảnh button
+        self.add_button = Button(image=self.add_image,
+                              borderwidth=0,
+                              highlightthickness=0,
+                              command=lambda: ubp.add_button_handle(self),
+                              relief="flat"
+                              )
+        self.add_button.place(x=104, y=576, width=195, height=62)
+
+        # -----Nút remove-----
+
+        self.remove_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_remove.png")  # tạo ảnh button
+        self.remove_button = Button(image=self.remove_image,
+                               borderwidth=0,
+                               highlightthickness=0,
+                               command=lambda: ubp.borrow_button_handle(self),
+                               relief="flat"
+                               )
+        self.remove_button.place(x=357, y=576, width=195, height=62)
+
+        # -----Nút update-----
+
+        self.update_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_update.png")  # tạo ảnh button
+        self.update_button = Button(image=self.update_image,
+                                    borderwidth=0,
+                                    highlightthickness=0,
+                                    command=lambda: ubp.borrow_button_handle(self),
+                                    relief="flat"
+                                    )
+        self.update_button.place(x=715, y=676, width=195, height=62)
+
+        # -----Nút reset-----
+
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  # tạo ảnh button
+        self.reset_button = Button(image=self.reset_image,
+                                    borderwidth=0,
+                                    highlightthickness=0,
+                                    command=lambda: ubp.borrow_button_handle(self),
+                                    relief="flat"
+                                    )
+        self.reset_button.place(x=982, y=676, width=195, height=62)
+
+        # -----Bookid entry quantity-----
+
+
+        self.entry_bookid_quatity = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
+
             highlightthickness=0,
-            command=lambda: print("Button add Clicked"),
-            relief="flat"
+            font=("Arial", 20)
         )
-        self.button_add.place(x=432.0,y=589.0,width=195.0,height=62.0)
-       
-        # ---- Button Remove --- 
-        self.button_image_remove = PhotoImage (file=f"./Images/Book/Update/button_remove.png")
-        self.button_remove = Button(
-            image=self.button_image_remove,
-            borderwidth=0,
+        self.entry_bookid_quatity.place(
+            x=269,
+            y=403,
+            width=319,
+            height=60
+        )
+
+        # ----- Quantity entry-----
+        self.entry_quantity = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
             highlightthickness=0,
-            command=lambda: print("Button Remove Clicked"),
-            relief="flat")
-        self.button_remove.place(x=653.0,y=589.0,width=195.0,height=62.0)
-        # ---- Button Back --- 
-        self.button_image_back = PhotoImage (file=f"./Images/Book/Update/button_back.png")
-        self.button_back = Button(
-            image=self.button_image_back,
-            borderwidth=0,
+            font=("Arial", 20)
+        )
+        self.entry_quantity.place(
+            x=269,
+            y=486,
+            width=319,
+            height=60
+        )
+
+        # ----- Bookid infor entry-----
+        self.entry_bookid_info = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
             highlightthickness=0,
-            command=lambda: upc.Update_Book_Process.back_button_handle(self, username),
-            relief="flat")
-        self.button_back.place(x=41.0,y=181.0,width=151.0,height=50.0)
-      # Hiển thị ngày & giờ
+            font=("Arial", 20)
+        )
+        self.entry_bookid_info.place(
+            x=850,
+            y=322,
+            width=360,
+            height=60
+        )
+
+        # ----- title entry-----
+        self.entry_title = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
+            highlightthickness=0,
+            font=("Arial", 20)
+        )
+        self.entry_title.place(
+            x=850,
+            y=406,
+            width=360,
+            height=60
+        )
+        # ----- author entry-----
+        self.entry_author = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
+            highlightthickness=0,
+            font=("Arial", 20)
+        )
+        self.entry_author.place(
+            x=850,
+            y=490,
+            width=360,
+            height=60
+        )
+
+        # ----- genre entry-----
+        self.entry_genre = Entry(
+            bd=5,
+            bg="#F1F4F6",
+            fg="#000",
+            highlightthickness=0,
+            font=("Arial", 20)
+        )
+        self.entry_genre.place(
+            x=850,
+            y=574,
+            width=360,
+            height=60
+        )
+
+        # -----Hiển thị thông tin-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -73,25 +194,9 @@ class Update_Book_Create:
         self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
-        
-    
-      # ---- Dòng nhập liệu ---- 
-        self.canvas.create_image(714.0, 446.0)
-        self.entry_book_id = Entry(
-            bd=5,
-            bg="#F1F4F6",
-            fg="#000716",
-            highlightthickness=0,
-            font = ('Arial',20,'bold')
-        )
-        self.entry_book_id.place(x=497.0, y=415.0, width=434.0, height=60.0)
-        self.canvas.create_image(714,523)
-        self.entry_quantity = Entry(
-            bd = 5,
-            bg="#F1F4F6",
-            fg="#000716",
-            highlightthickness=0,
-            font = ('Arial',20,'bold')
-        )
-        self.entry_quantity.place(x=497.0, y=492.0, width=434.0, height=60.0)
+
+
+        # Không cho phép thay đổi kích thước cửa sổ
+        self.window.resizable(False, False)
         self.window.mainloop()
+
