@@ -52,7 +52,7 @@ class Update_Book_Create:
 
         # -----Nút add-----
 
-        self.add_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  # tạo ảnh button
+        self.add_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_add.png")  # tạo ảnh button
         self.add_button = Button(image=self.add_image,
                               borderwidth=0,
                               highlightthickness=0,
