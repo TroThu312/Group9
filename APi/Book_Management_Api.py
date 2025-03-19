@@ -7,6 +7,9 @@ class Book_Management_Api(main_api):
     def __init__(self):
         super().__init__()
         self.connector()
+    def get_book_info(self, book_id):
+        book = self.warehouse_collection.find_one({"Book_Id": book_id})
+        return book
     def get_books_info(self):
         all_books = self.warehouse_collection.find()
         list_of_book = []
@@ -119,4 +122,10 @@ class Book_Management_Api(main_api):
 
         self.warehouse_collection.update_one({'Book_Id': book_id}, {'$set': {'Stock': new_stock}})
         return 0
-
+    def update_book_info(self, book_id, update_data):
+        book = self.warehouse_collection.find_one({"Book_Id": book_id})
+        if not book:
+            return -1
+        
+        self.warehouse_collection.update_one({"Book_Id": book_id}, {"$set": update_data})
+        return 0
