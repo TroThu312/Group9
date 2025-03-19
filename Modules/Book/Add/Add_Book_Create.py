@@ -85,7 +85,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20)
         )
-        self.entry_book_id.place(x=475.0, y=290.0, width=450.0, height=62.0)
+        self.entry_book_id.place(x=500, y=290.0, width=450.0, height=62.0)
 
         self.entry_title = Entry(
             bd = 5,
@@ -94,7 +94,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20)
         )
-        self.entry_title.place(x=475.0, y=367.0, width=450.0, height=62.0)
+        self.entry_title.place(x=500, y=367.0, width=450.0, height=62.0)
         
         self.entry_author = Entry(
             bd = 5,
@@ -103,7 +103,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20)
         )
-        self.entry_author.place(x=475.0, y=444.0, width=450.0, height=62.0)
+        self.entry_author.place(x=500, y=444.0, width=450.0, height=62.0)
         self.entry_genre = Entry(
             bd = 5,
             bg="#F1F4F6",
@@ -111,7 +111,7 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20)
         )
-        self.entry_genre.place(x=475.0, y=521.0, width=450.0, height=62.0)
+        self.entry_genre.place(x=500, y=521.0, width=450.0, height=62.0)
         self.entry_stock = Entry(
             bd = 5,
             bg="#F1F4F6",
@@ -119,5 +119,5 @@ class Add_Book_Create:
             highlightthickness=0,
             font = ('Arial',20)
         )
-        self.entry_stock.place(x=475.0, y=598.0, width=450.0, height=62.0)
+        self.entry_stock.place(x=500, y=598.0, width=450.0, height=62.0)
         self.window.mainloop()
