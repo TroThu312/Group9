@@ -14,7 +14,7 @@ class Login_Process:
         result = api.check_user_login(username, password)
 
         if result == -1:
-            messagebox.showerror("Error", "Username or password cannot be empty.")
+            messagebox.showerror("Error", "Username/Email or password cannot be empty.")
             obj.name_entry.delete(0, END)
             obj.password_entry.delete(0, END)
         elif result == -2:
@@ -25,7 +25,7 @@ class Login_Process:
             messagebox.showerror("Error", "Incorrect password.")
             obj.password_entry.delete(0, END)
         else:
-            # Đăng nhập thành công
+            username = result
             messagebox.showinfo("Welcome", f"Welcome, {username}")
             obj.window.destroy()
             app = mvc.Main_View_Create(username)
