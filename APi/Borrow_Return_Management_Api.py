@@ -1,11 +1,29 @@
 from APi.Main_Api import Api as main_api
 from datetime import datetime
-from tkinter import messagebox
 
 class BorrowReturnManagementApi(main_api):
     def __init__(self):
         super().__init__()  # Gọi hàm khởi tạo của Api để đảm bảo các collections được khởi tạo
         self.connector()
+
+    def load_data_api(self):
+        all_transactions = self.invoices_collection.find()  # Lấy tất cả giao dịch
+        borrowed_transactions = []
+
+        for transaction in all_transactions:
+            borrowed_books = [
+                book for book in transaction.get("Books", []) if book.get("Status") == "Borrowed"
+            ]
+            for book in borrowed_books:
+                borrowed_transactions.append({
+                    "Book_Id": book.get("Book_Id"),
+                    "Student_Id": transaction.get("Student_Id"),
+                    "Name": transaction.get("Name"),
+                    "Title": book.get("Title"),
+                    "Borrow_Date": book.get("Borrow_Date")
+                })
+
+        return borrowed_transactions  
     def check_book_borrow(self, book_id, student_id):
         # Kiểm tra xem sách có tồn tại không
         book = self.warehouse_collection.find_one({"Book_Id": book_id})  # Đổi books_collection thành warehouse_collection

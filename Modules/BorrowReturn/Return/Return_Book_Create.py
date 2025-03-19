@@ -1,6 +1,7 @@
 from datetime import datetime
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from tkinter.ttk import Treeview, Style
+from APi.Borrow_Return_Management_Api import BorrowReturnManagementApi
 from Modules.BorrowReturn.Return.Return_Book_Process import Return_Book_Process as rbp
 #import Return_Book_Process as rbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
@@ -119,6 +120,7 @@ class Return_Book_Create:
             width=427,
             height=62
         )
+        
 
         # -----Hiển thị thông tin-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
@@ -134,59 +136,53 @@ class Return_Book_Create:
             self.time.config(text=self.now_time)  # Cập nhật vào Label
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
-
         update_time()
+        self.setup_treeview()
+        self.load_data()
 
-        # # -----Hiển thị thông tin cho treeview-----
-        # self.frame_tree = Frame(self.window)
-        # self.frame_tree.place(x=576, y=282, width=680, height=490)
-
-        # self.tree = Treeview(self.frame_tree)
-        # self.tree["columns"] = ("Book ID", "Name", "Author", "Edition", "Quantity")
-
-        # self.tree.column("#0", width=0, stretch=NO)  # Cột ẩn (dùng khi tạo cây)
-        # self.tree.column("Book ID", anchor=CENTER, width=140)
-        # self.tree.column("Name", anchor=W, width=300)
-        # self.tree.column("Author", anchor=W, width=140)
-        # self.tree.column("Edition", anchor=CENTER, width=80)
-        # self.tree.column("Quantity", anchor=CENTER, width=80)
-
-        # # Thêm tiêu đề
-        # self.tree.heading("#0", text="", anchor=W)
-        # self.tree.heading("Book ID", text="Book ID", anchor=CENTER)
-        # self.tree.heading("Name", text="Name", anchor=CENTER)
-        # self.tree.heading("Author", text="Author", anchor=CENTER)
-        # self.tree.heading("Edition", text="Edition", anchor=CENTER)
-        # self.tree.heading("Quantity", text="Quantity", anchor=CENTER)
-
-        # # -------tạo scrollbar----------------
-        # self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
-        # self.tree.configure(yscrollcommand=self.scroll_y.set)
-
-        # # Tạo Scrollbar ngang
-        # self.scroll_x = Scrollbar(self.frame_tree, orient="horizontal", command=self.tree.xview)
-        # self.tree.configure(xscrollcommand=self.scroll_x.set)
-
-        # # Đặt vị trí các thành phần
-        # self.scroll_y.pack(side="right", fill="y")
-        # self.scroll_x.pack(side="bottom", fill="x")
-        # self.tree.pack(side="left", fill="both", expand=False)
-
-        # # -------Thiết lập style cho treeview----------------
-        # self.tree = Style()
-        # self.tree.theme_use("default")
-        # self.tree.configure("Treeview",
-        #                background="#B9E3E9",  # Màu nền của bảng
-        #                foreground="black",  # Màu chữ
-        #                rowheight=30,  # Độ cao mỗi dòng
-        #                font=("Arial", 15))
-        # #-------heading----------------
-        # self.tree.configure("Treeview.Heading",
-        #                background="#B9E3E9",  # Màu nền của bảng
-        #                foreground="black",  # Màu chữ
-        #                # Độ cao mỗi dòng
-        #                font=("Arial", 15))
-
-        # Không cho phép thay đổi kích thước cửa sổ
         self.window.resizable(False, False)
         self.window.mainloop()
+    def setup_treeview(self):
+        self.frame_tree = Frame(self.window)
+        self.frame_tree.place(x=576, y=361, width=681, height=411)
+
+        self.tree = Treeview(self.frame_tree, columns=("Book_Id", "Student_Id", "Name", "Title", "Borrow_Date"), show="headings")
+        self.tree.heading("Book_Id", text="Book ID")
+        self.tree.heading("Student_Id", text="Student ID")
+        self.tree.heading("Name", text="Name")
+        self.tree.heading("Title", text="Title")
+        self.tree.heading("Borrow_Date", text="Borrow Date")
+        
+        self.tree.column("Book_Id", width=90, anchor="center")
+        self.tree.column("Student_Id", width=80, anchor="center")
+        self.tree.column("Name", width=70, anchor="center")
+        self.tree.column("Title", width=240, anchor="center")
+        self.tree.column("Borrow_Date", width=90, anchor="center")
+
+        self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
+        self.tree.configure(yscrollcommand=self.scroll_y.set)
+        self.scroll_y.pack(side="right", fill="y")
+        self.tree.pack(fill="both", expand=True)
+         # -------Thiết lập style cho treeview----------------
+        self.style = Style()
+        self.style.theme_use("default")
+        self.style.configure("Treeview",
+                            background="#B9E3E9",  # Màu nền của bảng
+                            foreground="black",  # Màu chữ
+                            rowheight=25,  # Độ cao mỗi dòng
+                            font=("Arial", 10))
+
+        # -------heading----------------
+        self.style.configure("Treeview.Heading",
+                            background="#B9E3E9",  # Màu nền của bảng
+                            foreground="black",  # Màu chữ
+                            font=("Arial", 10))
+
+    def load_data(self):
+        api = BorrowReturnManagementApi()
+        results = api.load_data_api()
+        self.tree.delete(*self.tree.get_children())
+        for row in results:
+            self.tree.insert("", "end", values=(row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")))
+
+        
