@@ -8,7 +8,7 @@ def relative_to_assets(path: str) -> str:
     return f"./Images/Book/Add/{path}"
 class Add_Book_Create:
     def update_time(self):
-        current_date = time.strftime("%Y-%m-%d")
+        current_date = time.strftime("%d/%m/%Y")
         current_time = time.strftime("%H:%M:%S")
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
@@ -24,8 +24,8 @@ class Add_Book_Create:
         self.window_height = 832
         # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
         self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
         # self.window.iconphoto(False, PhotoImage(file = relative_to_assets("User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
@@ -45,8 +45,7 @@ class Add_Book_Create:
             borderwidth=0,
             highlightthickness=0,
             command=lambda: adp.add_button_handle(self),
-            relief="flat"
-        )
+            relief="flat")
         self.button_add.place(x=428.0,y=681.0,width=195.0,height=62.0)
        
         # ---- Button Reset --- 
@@ -84,41 +83,41 @@ class Add_Book_Create:
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
-            font = ('Arial',20,'bold')
+            font = ('Arial',20)
         )
-        self.entry_book_id.place(x=508.0, y=290.0, width=434.0, height=62.0)
+        self.entry_book_id.place(x=475.0, y=290.0, width=450.0, height=62.0)
 
         self.entry_title = Entry(
             bd = 5,
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
-            font = ('Arial',20,'bold')
+            font = ('Arial',20)
         )
-        self.entry_title.place(x=508.0, y=367.0, width=434.0, height=62.0)
+        self.entry_title.place(x=475.0, y=367.0, width=450.0, height=62.0)
         
         self.entry_author = Entry(
             bd = 5,
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
-            font = ('Arial',20,'bold')
+            font = ('Arial',20)
         )
-        self.entry_author.place(x=508.0, y=444.0, width=434.0, height=62.0)
+        self.entry_author.place(x=475.0, y=444.0, width=450.0, height=62.0)
         self.entry_genre = Entry(
             bd = 5,
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
-            font = ('Arial',20,'bold')
+            font = ('Arial',20)
         )
-        self.entry_genre.place(x=508.0, y=521.0, width=434.0, height=62.0)
+        self.entry_genre.place(x=475.0, y=521.0, width=450.0, height=62.0)
         self.entry_stock = Entry(
             bd = 5,
             bg="#F1F4F6",
             fg="#000716",
             highlightthickness=0,
-            font = ('Arial',20,'bold')
+            font = ('Arial',20)
         )
-        self.entry_stock.place(x=508.0, y=598.0, width=434.0, height=62.0)
+        self.entry_stock.place(x=475.0, y=598.0, width=450.0, height=62.0)
         self.window.mainloop()
