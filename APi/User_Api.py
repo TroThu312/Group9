@@ -8,6 +8,21 @@ class User_Api(main_api):
         super().__init__()
         self.connector()
 
+    def get_user_info(self):
+        users = self.users_collection.find()
+        return users
+
+    def search_user(self, search_value):
+        query = {
+            "$or": [
+                {"Student_Id": {"$regex": search_value, "$options": "i"}},  
+                {"Name": {"$regex": search_value, "$options": "i"}} 
+            ]
+        }
+        results = list(self.users_collection.find(query, {"_id": 0})) 
+        return results
+
+
     def add_new_user(self, student_id, name, contact, address):
         user = self.users_collection.find_one({"Student_Id": student_id})
         sdt = self.users_collection.find_one({"Contract": contact})
