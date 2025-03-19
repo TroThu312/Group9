@@ -49,55 +49,13 @@ class Return_Book_Process:
             return
 
         # Nếu đã có Treeview hiển thị kết quả, xoá đi trước khi tạo mới
-        if hasattr(return_book_instance, 'tree') and isinstance(return_book_instance.tree, Treeview):
-            return_book_instance.tree.delete(*return_book_instance.tree.get_children())
+        return_book_instance.tree.delete(*return_book_instance.tree.get_children())
 
-       # Tạo một frame để chứa Treeview và thanh cuộn
-        frame = ttk.Frame(return_book_instance.window)
-        frame.place(x=576, y=361, width=681, height=411)  # Vị trí của bảng và thanh cuộn
-
-        # Tạo Scrollbar dọc
-        y_scrollbar = Scrollbar(frame, orient="vertical")
-        y_scrollbar.pack(side="right", fill="y")
-
-        # Tạo Treeview để hiển thị kết quả
-        tree = ttk.Treeview(frame, columns=("Book_Id","Student_Id", "Name", "Title", "Borrow_Date"), show="headings", yscrollcommand=y_scrollbar.set)
-
-        tree.heading("Book_Id", text = "Book ID")
-        tree.heading("Student_Id", text="Student ID")
-        tree.heading("Name", text="Name")
-        tree.heading("Title", text="Title")
-        tree.heading("Borrow_Date", text="Borrow Date")
-
-        # Cài đặt cột với chiều rộng và căn giữa
-        tree.column("Book_Id", width=90, anchor="center")  # Cột Student ID
-        tree.column("Student_Id", width=80, anchor="center")  # Cột Student ID
-        tree.column("Name", width=70, anchor="center")        # Cột Name
-        tree.column("Title", width=240, anchor="center")       # Cột Title
-        tree.column("Borrow_Date", width=90, anchor="center") # Cột Borrow Date
-        #-80
-        # Style cho Treeview
-        style = Style()
-        style.theme_use("default")
-        style.configure("Treeview", background="#B9E3E9", foreground="black", rowheight=25, font=("Arial", 10))
-        style.configure("Treeview.Heading",  background="#B9E3E9", foreground="black", font=("Arial", 10, "bold"))
-        # Chèn dữ liệu vào Treeview
-        for row in results:
-            tree.insert("", "end", values=(row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")))
-
-        # Đặt lại các thanh cuộn với Treeview
-        y_scrollbar.config(command=tree.yview)
-
-        # Kích thước của Treeview
-        tree.pack(fill="both", expand=True)
-
-        return_book_instance.tree = tree
-
-        return_book_instance.tree = tree  # Lưu lại đối tượng treeview để xử lý sau này (nếu cần)
+        # Chèn dữ liệu mới vào Treeview
         for row in results:
             return_book_instance.tree.insert("", "end", values=(
                 row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")
-            ))
+        ))
     @staticmethod
     def reset_button_handle(return_book_instance):
         return_book_instance.entry_bookid.delete(0, 'end')
