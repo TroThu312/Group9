@@ -4,15 +4,18 @@ class Login_Api(main_api.Api):
         super().__init__()
         self.connector()
     
-    def check_user_login(self,username,password):
-        if not username or not password:
+    def check_user_login(self,username_or_email,password):
+        if not username_or_email or not password:
             return -1 # Empty username or password
-        user = self.admin_collection.find_one({'Username':username})
+        if "@" in username_or_email:
+            user = self.admin_collection.find_one({"Email": username_or_email})
+        else:
+            user = self.admin_collection.find_one({'Username':username_or_email})
         if not user:
             return -2  # User not found
         if user['Password'] != password:
             return -3 # Incorrect password
-        return 0 # Login Success
+        return user["Username"]
     
     def check_admin_email(self,email):
         check = self.admin_collection.find_one({'Email':email})
