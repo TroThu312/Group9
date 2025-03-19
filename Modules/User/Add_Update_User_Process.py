@@ -27,7 +27,7 @@ class Add_Update_User_Process:
             api = User_Api()
             c = api.add_new_user(student_id, name, contact, address)
             if c == "Available":
-                messagebox.showerror("SUCCESS!", "USER ADDED!")
+                messagebox.showinfo("SUCCESS!", "USER ADDED!")
                 self.student_id_entry.delete(0, END)
                 self.name_entry.delete(0, END)
                 self.contact_entry.delete(0, END)
@@ -52,7 +52,7 @@ class Add_Update_User_Process:
             if c == "Not Found":
                 messagebox.showerror("Warning", "User not found!")
             elif c == "Updated":
-                messagebox.showerror("SUCCESS!", "User updated!")
+                messagebox.showinfo("SUCCESS!", "User updated!")
                 self.student_id_entry.delete(0, END)
                 self.name_entry.delete(0, END)
                 self.contact_entry.delete(0, END)

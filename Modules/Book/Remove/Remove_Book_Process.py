@@ -21,7 +21,7 @@ class Remove_Book_Process:
                 if c == "Not found":
                     messagebox.showerror("Warning", "Book not found")
                 elif c == "Done":
-                    messagebox.showerror("SUCCESS!", "BOOK REMOVED!")
+                    messagebox.showinfo("SUCCESS!", "BOOK REMOVED!")
                     self.book_id_entry.delete(0, END)
             else:
                 messagebox.showerror("Notification", "Action Cancelled")
