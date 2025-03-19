@@ -1,8 +1,8 @@
 from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
 from Modules.User.Add_Update_User_Process import Add_Update_User_Process as auup  # Import module xử lý sự kiện của admin
 from datetime import datetime
-
-
+from tkinter.ttk import Treeview, Style
+import APi.User_Api as ua
 
 class Add_Update_User_Create:
     # -----Hiển thị thông tin-----
@@ -64,7 +64,7 @@ class Add_Update_User_Create:
         # ---- Button Search ---
         self.search_button_image = PhotoImage(file=f"./Images/User/search_button.png")
         self.search_button = Button(image=self.search_button_image, borderwidth=0, highlightthickness=0, relief="flat",
-                                  command=lambda: auup.back_button_handle(self, username))
+                                  command=lambda: auup.search_button_handle(self))
 
         self.search_button.place(x=1102.0, y=196.0, width=150.0, height=62.0)
 
@@ -104,7 +104,52 @@ class Add_Update_User_Create:
             self.time.config(text=self.now_time)  # Cập nhật vào Label
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
-
         update_time()
-
+        self.setup_treeview()
+        self.load_data()
         self.window.mainloop()
+        self.window.resizable(False, False)
+    def setup_treeview(self):
+        self.frame_tree = Frame(self.window)
+        self.frame_tree.place(x=620, y=270, width=650, height=411)
+        #x = 576 y = 361
+        self.tree = Treeview(self.frame_tree, columns=("Student_Id", "Name", "Contract", "Address"), show="headings")
+        self.tree.heading("Student_Id", text="Student ID")
+        self.tree.heading("Name", text="Name")
+        self.tree.heading("Contract", text="Contract")
+        self.tree.heading("Address", text="Address")
+        self.tree.column("Student_Id", width=90, anchor="center")
+        self.tree.column("Name", width=150, anchor="center")
+        self.tree.column("Contract", width=150, anchor="center")
+        self.tree.column("Address", width=180, anchor="center")
+
+        self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
+        self.tree.configure(yscrollcommand=self.scroll_y.set)
+        self.scroll_y.pack(side="right", fill="y")
+        self.tree.pack(fill="both", expand=True)
+         # -------Thiết lập style cho treeview----------------
+        self.style = Style()
+        self.style.theme_use("default")
+        self.style.configure("Treeview",
+                            background="#B9E3E9",  # Màu nền của bảng
+                            foreground="black",  # Màu chữ
+                            rowheight=25,  # Độ cao mỗi dòng
+                            font=("Arial", 10))
+
+        # -------heading----------------
+        self.style.configure("Treeview.Heading",
+                            background="#B9E3E9",  # Màu nền của bảng
+                            foreground="black",  # Màu chữ
+                            font=("Arial", 10))
+    def load_data(self):
+        api = ua.User_Api()
+        results = api.get_user_info()
+        self.tree.delete(*self.tree.get_children())
+        for row in results:
+            self.tree.insert("", "end", values=(row.get("Student_Id"), row.get("Name"), row.get("Contract"), row.get("Address")))
+    def load_search_data(self, data):
+        self.tree.delete(*self.tree.get_children())
+        for row in data:
+            self.tree.insert("", "end", values=(row.get("Student_Id"), row.get("Name"), row.get("Contract"), row.get("Address")))
+
+

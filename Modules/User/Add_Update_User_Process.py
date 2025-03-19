@@ -32,6 +32,7 @@ class Add_Update_User_Process:
                 self.name_entry.delete(0, END)
                 self.contact_entry.delete(0, END)
                 self.address_entry.delete(0, END)
+                self.load_data()
             elif c == "Not Available":
                 messagebox.showerror("Warning", "User already exists")
 
@@ -57,7 +58,21 @@ class Add_Update_User_Process:
                 self.name_entry.delete(0, END)
                 self.contact_entry.delete(0, END)
                 self.address_entry.delete(0, END)
+                self.load_data()
+    def search_button_handle(self):
+        search_value = self.search_entry.get().strip()
 
+        if not search_value:
+            messagebox.showerror("Warning", "Please enter a keyword to search!")
+            return
+
+        api = User_Api()
+        results = api.search_user(search_value)  # Gọi API tìm kiếm trong MongoDB
+
+        if not results:
+            messagebox.showinfo("Info", "No user found!")
+            return
+        self.load_search_data(results)
     @staticmethod
     def back_button_handle(self, username):
         self.window.destroy()

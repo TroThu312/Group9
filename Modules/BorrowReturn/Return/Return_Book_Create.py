@@ -144,7 +144,7 @@ class Return_Book_Create:
         self.window.mainloop()
     def setup_treeview(self):
         self.frame_tree = Frame(self.window)
-        self.frame_tree.place(x=576, y=361, width=681, height=411)
+        self.frame_tree.place(x=576, y=270, width=681, height=411)
 
         self.tree = Treeview(self.frame_tree, columns=("Book_Id", "Student_Id", "Name", "Title", "Borrow_Date"), show="headings")
         self.tree.heading("Book_Id", text="Book ID")
