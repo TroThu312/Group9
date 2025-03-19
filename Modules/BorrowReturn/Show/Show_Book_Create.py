@@ -4,7 +4,7 @@ from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao 
 from tkinter.ttk import Style, Treeview
 #import Show_Book_Process as sbp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
-
+import APi.Book_Management_Api as bma
 
 # Định nghĩa lớp giao diện Admin
 class Show_Book_Create:
@@ -83,10 +83,14 @@ class Show_Book_Create:
             self.time.config(text=self.now_time)  # Cập nhật vào Label
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
-
         update_time()
+        self.setup_treeview()
+        self.load_data()
+        self.window.resizable(False, False)
+        self.window.mainloop()
 
-        # -----Hiển thị thông tin cho treeview-----
+        
+    def setup_treeview(self):
         self.frame_tree = Frame(self.window)
         self.frame_tree.place(x=75, y=350, width=1130, height=365)
 
@@ -95,10 +99,10 @@ class Show_Book_Create:
 
         self.tree.column("#0", width=0, stretch=NO)  # Cột ẩn (dùng khi tạo cây)
         self.tree.column("Book ID", anchor=CENTER, width=240)
-        self.tree.column("Title", anchor=W, width=430)
-        self.tree.column("Author", anchor=W, width=240)
-        self.tree.column("Genre", anchor=CENTER, width=120)
-        self.tree.column("Stock", anchor=CENTER, width=100)
+        self.tree.column("Title", anchor=W, width=360)
+        self.tree.column("Author", anchor=W, width=220)
+        self.tree.column("Genre", anchor=CENTER, width=150)
+        self.tree.column("Stock", anchor=CENTER, width=120)
 
         # Thêm tiêu đề
         self.tree.heading("#0", text="", anchor=W)
@@ -127,15 +131,18 @@ class Show_Book_Create:
         self.style.configure("Treeview",
                             background="#B9E3E9",  # Màu nền của bảng
                             foreground="black",  # Màu chữ
-                            rowheight=50,  # Độ cao mỗi dòng
-                            font=("Arial", 20))
+                            rowheight=25,  # Độ cao mỗi dòng
+                            font=("Arial", 15))
 
         # -------heading----------------
         self.style.configure("Treeview.Heading",
                             background="#B9E3E9",  # Màu nền của bảng
                             foreground="black",  # Màu chữ
-                            font=("Arial", 20))
-
-        # Không cho phép thay đổi kích thước cửa sổ
-        self.window.resizable(False, False)
-        self.window.mainloop()
+                            font=("Arial", 15))
+    
+    def load_data(self):
+        api = bma.Book_Management_Api()
+        results = api.get_books_info()
+        self.tree.delete(*self.tree.get_children())
+        for row in results:
+            self.tree.insert("", "end", values=(row.get("Book_Id"), row.get("Title"), row.get("Author"), row.get("Genre"), row.get("Stock")))

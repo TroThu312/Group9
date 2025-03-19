@@ -7,7 +7,18 @@ class Book_Management_Api(main_api):
     def __init__(self):
         super().__init__()
         self.connector()
-
+    def get_books_info(self):
+        all_books = self.warehouse_collection.find()
+        list_of_book = []
+        for book in all_books:
+            list_of_book.append({
+                "Book_Id": book.get("Book_Id"),
+                "Title": book.get("Title"),
+                "Author": book.get("Author"),
+                "Genre": book.get("Genre"),
+                "Stock": book.get("Stock")
+            })
+        return list_of_book
     def add_new_book(self, json_data):
         book_id = json_data["Book_Id"]
         title = json_data["Title"]
