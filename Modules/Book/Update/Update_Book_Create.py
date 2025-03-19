@@ -3,7 +3,7 @@ from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao 
 #import Modules.Book.Update.Update_Book_Process.Update_Book_Process as ubp  # Import module xử lý sự kiện của admin
 from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
 from Modules.Book.Update.Update_Book_Process import Update_Book_Process as ubp
-
+import time
 # Định nghĩa lớp giao diện Admin
 class Update_Book_Create:
     def update_time(self):
@@ -56,7 +56,7 @@ class Update_Book_Create:
         self.add_button = Button(image=self.add_image,
                               borderwidth=0,
                               highlightthickness=0,
-                              command=lambda: ubp.add_button_handle(self),
+                              command=lambda: ubp.add_book_button_handle(self),
                               relief="flat"
                               )
         self.add_button.place(x=104, y=576, width=195, height=62)
@@ -67,7 +67,7 @@ class Update_Book_Create:
         self.remove_button = Button(image=self.remove_image,
                                borderwidth=0,
                                highlightthickness=0,
-                               command=lambda: ubp.borrow_button_handle(self),
+                               command=lambda: ubp.remove_book_button_handle(self),
                                relief="flat"
                                )
         self.remove_button.place(x=357, y=576, width=195, height=62)
@@ -78,7 +78,7 @@ class Update_Book_Create:
         self.update_button = Button(image=self.update_image,
                                     borderwidth=0,
                                     highlightthickness=0,
-                                    command=lambda: ubp.borrow_button_handle(self),
+                                    command=lambda: ubp.update_book_info(self),
                                     relief="flat"
                                     )
         self.update_button.place(x=715, y=676, width=195, height=62)
@@ -89,7 +89,7 @@ class Update_Book_Create:
         self.reset_button = Button(image=self.reset_image,
                                     borderwidth=0,
                                     highlightthickness=0,
-                                    command=lambda: ubp.borrow_button_handle(self),
+                                    command=lambda: ubp.reset(self),
                                     relief="flat"
                                     )
         self.reset_button.place(x=982, y=676, width=195, height=62)
@@ -189,9 +189,9 @@ class Update_Book_Create:
         # -----Hiển thị thông tin-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
-        self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.date_label = Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
         self.date_label.place(x=745, y=85, anchor="nw")
-        self.time_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
+        self.time_label = Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
 
