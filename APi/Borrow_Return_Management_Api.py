@@ -9,7 +9,7 @@ class BorrowReturnManagementApi(main_api):
     def check_book_borrow(self, book_id, student_id):
         # Kiểm tra xem sách có tồn tại không
         book = self.warehouse_collection.find_one({"Book_Id": book_id})  # Đổi books_collection thành warehouse_collection
-        user = self.users_collection.find_one({"Student_id": student_id})
+        user = self.users_collection.find_one({"Student_Id": student_id})
         if not book or not user:
             return "Nothing found"
         elif not book:
