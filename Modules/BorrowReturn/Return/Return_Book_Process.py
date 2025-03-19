@@ -4,8 +4,10 @@ from tkinter import ttk
 from tkinter.ttk import Treeview, Style
 from tkinter import Scrollbar
 import Modules.MainPage.Main_View_Create as mainview
+import Modules.BorrowReturn.Return.Return_Book_Create as rbc
 class Return_Book_Process:
-        
+    
+    @staticmethod
     def return_button_handle(return_book_instance):
         student_id = return_book_instance.entry_studentid.get().strip()
         book_id = return_book_instance.entry_bookid.get().strip()
@@ -18,6 +20,10 @@ class Return_Book_Process:
         
         if result_code == 1:
             messagebox.showinfo("Thành công", "Trả sách thành công.")
+            return_book_instance.entry_bookid.delete(0, 'end')
+            return_book_instance.entry_search.delete(0, 'end')
+            return_book_instance.entry_studentid.delete(0, 'end')
+            return_book_instance.load_data()
         elif result_code == -1:
             messagebox.showerror("Lỗi", f"Không tìm thấy giao dịch mượn sách cho sinh viên {student_id} với sách {book_id} đang được mượn.")
         elif result_code == -2:
@@ -29,6 +35,7 @@ class Return_Book_Process:
         else:
             messagebox.showerror("Lỗi", "Có lỗi không xác định xảy ra.")
 
+    @staticmethod
     def search_button_handle(return_book_instance):
         student_id = return_book_instance.entry_search.get().strip()
         if not student_id:
@@ -43,7 +50,7 @@ class Return_Book_Process:
 
         # Nếu đã có Treeview hiển thị kết quả, xoá đi trước khi tạo mới
         if hasattr(return_book_instance, 'tree') and isinstance(return_book_instance.tree, Treeview):
-            return_book_instance.tree.destroy()
+            return_book_instance.tree.delete(*return_book_instance.tree.get_children())
 
        # Tạo một frame để chứa Treeview và thanh cuộn
         frame = ttk.Frame(return_book_instance.window)
@@ -87,6 +94,11 @@ class Return_Book_Process:
         return_book_instance.tree = tree
 
         return_book_instance.tree = tree  # Lưu lại đối tượng treeview để xử lý sau này (nếu cần)
+        for row in results:
+            return_book_instance.tree.insert("", "end", values=(
+                row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")
+            ))
+    @staticmethod
     def reset_button_handle(return_book_instance):
         return_book_instance.entry_bookid.delete(0, 'end')
         return_book_instance.entry_search.delete(0, 'end')
