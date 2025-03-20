@@ -32,7 +32,10 @@ class Borrow_Book_Process:
                 messagebox.showerror("Warning", "Student not found")
                 self.entry_bookid.delete(0, END)
                 self.entry_studentid.delete(0, END)
-
+            elif c == "Book already borrowed":
+                messagebox.showerror("Warning", "Book already borrowed")
+                self.entry_bookid.delete(0, END)
+                self.entry_studentid.delete(0, END)
             elif c == "Book out of stock":
                 messagebox.showerror("Warning", "Book out of stock")
                 self.entry_bookid.delete(0, END)
