@@ -24,9 +24,9 @@ class Add_Book_Create:
         self.window_height = 832
         # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                      (self.screen_width - self.window_width) // 2,
-                                      self.window.winfo_y()))
-        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
+                                              (self.screen_width - self.window_width) / 2,
+                                              (self.screen_height - self.window_height) / 2))
+        self.window.configure(bg="#FFFFFF")
         self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
         # self.window.iconphoto(False, PhotoImage(file = relative_to_assets("User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 

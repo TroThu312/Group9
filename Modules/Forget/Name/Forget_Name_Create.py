@@ -6,7 +6,16 @@ class Forget_Name_Create:
 
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("1280x832")
+        # Lấy kích thước màn hình của máy tính
+        self.screen_width = self.window.winfo_screenwidth()
+        self.screen_height = self.window.winfo_screenheight()
+        # Thiết lập kích thước cửa sổ ứng dụng
+        self.window_width = 1280
+        self.window_height = 832
+        # Căn giữa cửa sổ ứng dụng trên màn hình
+        self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
+                                              (self.screen_width - self.window_width) / 2,
+                                              (self.screen_height - self.window_height) / 2))
         self.window.configure(bg="#FFFFFF")
         self.window.title("Login")
 
