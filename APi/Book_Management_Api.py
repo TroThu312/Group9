@@ -28,35 +28,35 @@ class Book_Management_Api(main_api):
         author = json_data["Author"]
         genre = json_data["Genre"]
         stock = json_data["Stock"]
-        # Kiểm tra trùng lặp theo Book_Id
+        # Check Book_Id duplication
         existing_book_by_id = self.warehouse_collection.find_one({'Book_Id': book_id})
         if existing_book_by_id:
-            # Nếu sách đã tồn tại, cập nhật số lượng sách
+            # If Book_Id already exists → Update the quantity
             current_quantity = existing_book_by_id["Stock"]
             if current_quantity < 30:
-                new_quantity = min(30, current_quantity + stock)  # Đảm bảo không vượt quá 30
+                new_quantity = min(30, current_quantity + stock)  
                 self.warehouse_collection.update_one(
                     {'Book_Id': book_id}, {'$set': {'Stock': new_quantity}})
-                return 0  # Thành công
+                return 0  # Success
             else:
-                return -2  # Số lượng sách đã đầy
-        # Kiểm tra trùng lặp theo Title, Author, Genre
+                return -2  # Error: Quantity exceeds the limit
+        # Check Title, Author, Genre duplication
         existing_book_by_info = self.warehouse_collection.find_one({
             'Title': title,
             'Author': author,
             'Genre': genre
         })
         if existing_book_by_info:
-            # Nếu Title, Author, Genre đã tồn tại → Báo lỗi
+            # If Title, Author, Genre already exists → Return Error
             return -3
         # Get book information from Book_id in the collection
         required_fields = {"Book_Id", "Title", "Author", "Genre", "Stock"}
         if required_fields.issubset(json_data.keys()):
             json_data.setdefault("Borrowed_Count", 0)
             self.warehouse_collection.insert_one(json_data)
-            return 0  # Thành công
+            return 0  # Success
         else:
-            return -1  # Thiếu thông tin
+            return -1  # Missing required fields
 
 
     def update_items(self, json_data, book_id):

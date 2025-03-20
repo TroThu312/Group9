@@ -1,7 +1,7 @@
 import time
-from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  # Import module xử lý sự kiện của admin
-from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
+from tkinter import *  
+from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  
+from PIL import Image, ImageTk  
 import tkinter as tk
 
 
@@ -14,35 +14,28 @@ class Borrow_Book_Create:
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
-    def __init__(self, username):  # Phương thức khởi tạo class
-        self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
-
-        # Lấy kích thước màn hình của máy tính
+    def __init__(self, username):  
+        self.window = Tk()  
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
-        # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
-        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
-        self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"../../../Images/BorrowReturn/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
-
-        # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
+        self.window.configure(bg="#ffffff")  
+        self.window.title('Borrow Book') 
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
                              bd=0, highlightthickness=0, relief="ridge")
-        self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
+        self.canvas.place(x=0, y=0)  
 
-        # -----Thêm hình nền-----
+        # -----Background Image-----
         self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_borrow.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
-        # -----Nút quay lại-----
+        # -----Back button-----
 
-        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  
         self.back_button = Button(image=self.back_image,
                                    borderwidth=0,
                                    highlightthickness=0,
@@ -51,9 +44,9 @@ class Borrow_Book_Create:
                                    )
         self.back_button.place(x=40, y=180, width=151, height=50)
 
-        # -----Nút reset-----
+        # -----reset button-----
 
-        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  # tạo ảnh button
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  
         self.reset_button = Button(image=self.reset_image,
                               borderwidth=0,
                               highlightthickness=0,
@@ -62,9 +55,9 @@ class Borrow_Book_Create:
                               )
         self.reset_button.place(x=696, y=544, width=195, height=62)
 
-        # -----Nút submit-----
+        # -----submit button-----
 
-        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  # tạo ảnh button
+        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  
         self.submit_button = Button(image=self.submit_image,
                                borderwidth=0,
                                highlightthickness=0,
@@ -105,7 +98,7 @@ class Borrow_Book_Create:
             width=434,
             height=60
         )
-        # -----Hiển thị thông tin-----
+        # -----Show info-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -114,6 +107,6 @@ class Borrow_Book_Create:
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
 
-        # Không cho phép thay đổi kích thước cửa sổ
+        # Non resizable window
         self.window.resizable(False, False)
         self.window.mainloop()

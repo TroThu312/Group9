@@ -5,7 +5,7 @@ import APi.Book_Management_Api as bma
 class Update_Book_Process:
 
     @staticmethod
-    def get_data(obj): # Lấy dữ liệu từ các ô nhập
+    def get_data(obj): 
         book_id = obj.entry_bookid_quantity.get().strip()
         quantity_str = obj.entry_quantity.get().strip()
         if not book_id or not quantity_str:
@@ -97,5 +97,5 @@ class Update_Book_Process:
     @staticmethod
     def back_button_handle(obj, username):
         obj.window.destroy()
-        app = mainview.Main_View_Create(username)  # Gọi giao diện MainView
+        app = mainview.Main_View_Create(username)  
         app.window.mainloop()

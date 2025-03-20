@@ -5,13 +5,10 @@ class Forget_Change_Create:
 
     def __init__(self):
         self.window = Tk()
-        # Lấy kích thước màn hình của máy tính
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
-        # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
@@ -28,7 +25,6 @@ class Forget_Change_Create:
             relief="ridge"
         )
         self.canvas.place(x=0, y=0)
-        # file=f"./Images/MainPage/show_book_button.png"
         # Background Image
         self.background_image = PhotoImage(file=f"./Images/Forget/background_change.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)

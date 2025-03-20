@@ -36,8 +36,6 @@ class Add_Update_User_Process:
             elif c == "Not Available":
                 messagebox.showerror("Warning", "User already exists")
 
-
-
     @staticmethod
     def update_button_handle(self):
         student_id = self.student_id_entry.get()
@@ -67,12 +65,13 @@ class Add_Update_User_Process:
             return
 
         api = User_Api()
-        results = api.search_user(search_value)  # Gọi API tìm kiếm trong MongoDB
+        results = api.search_user(search_value)  
 
         if not results:
             messagebox.showinfo("Info", "No user found!")
             return
         self.load_search_data(results)
+        
     @staticmethod
     def back_button_handle(self, username):
         self.window.destroy()

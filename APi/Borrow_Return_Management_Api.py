@@ -3,11 +3,11 @@ from datetime import datetime
 
 class BorrowReturnManagementApi(main_api):
     def __init__(self):
-        super().__init__()  # Gọi hàm khởi tạo của Api để đảm bảo các collections được khởi tạo
+        super().__init__()  
         self.connector()
 
     def load_data_api(self):
-        all_transactions = self.invoices_collection.find()  # Lấy tất cả giao dịch
+        all_transactions = self.invoices_collection.find()  
         borrowed_transactions = []
 
         for transaction in all_transactions:
@@ -25,8 +25,7 @@ class BorrowReturnManagementApi(main_api):
 
         return borrowed_transactions  
     def check_book_borrow(self, book_id, student_id):
-        # Kiểm tra xem sách có tồn tại không
-        book = self.warehouse_collection.find_one({"Book_Id": book_id})  # Đổi books_collection thành warehouse_collection
+        book = self.warehouse_collection.find_one({"Book_Id": book_id})  
         user = self.users_collection.find_one({"Student_Id": student_id})
         if not book or not user:
             return "Nothing found"
@@ -38,7 +37,7 @@ class BorrowReturnManagementApi(main_api):
             if book["Stock"] <= 0:
                     return "Book out of stock"
             else:
-                # Cập nhật Stock và Borrowed_Count
+                # Update stock and borrowed count
                 self.warehouse_collection.update_one(
                     {"Book_Id": book_id},
                     {"$inc": {"Stock": -1, "Borrowed_Count": 1}}
@@ -62,21 +61,7 @@ class BorrowReturnManagementApi(main_api):
                 return "Book borrowed successfully"
             
     def return_book_api(self, student_id, book_id):
-        """
-        API trả sách:
-        - Tìm giao dịch mượn sách của sinh viên có chứa sách với book_id và trạng thái "Borrowed".
-        - Nếu tìm thấy, cập nhật trạng thái của sách sang "Returned" và cập nhật ngày trả.
-        - Cập nhật dữ liệu kho sách: tăng Stock lên 1 và giảm Borrowed_Count đi 1.
-        
-        Trả về:
-            1  : Trả sách thành công.
-            -1 : Không tìm thấy giao dịch mượn sách cho sinh viên với sách đang được mượn.
-            -2 : Cập nhật giao dịch thất bại.
-            -3 : Không tìm thấy sách trong kho.
-            -4 : Cập nhật kho sách thất bại.
-        """
-        
-        # Tìm giao dịch mượn sách với trạng thái "Borrowed"
+        # Search for the transaction with "Borrowed" status
         transaction = self.invoices_collection.find_one({
             "Student_Id": student_id,
             "Books": {
@@ -88,9 +73,9 @@ class BorrowReturnManagementApi(main_api):
         })
         
         if transaction is None:
-            return -1  # Không tìm thấy giao dịch mượn sách.
+            return -1  # Not found transaction
         
-        # Cập nhật trạng thái trong giao dịch sang "Returned" và cập nhật ngày trả
+        # Update "Returned" status and return date
         update_transaction = self.invoices_collection.update_one(
             {
                 "Student_Id": student_id,
@@ -106,12 +91,12 @@ class BorrowReturnManagementApi(main_api):
         )
         
         if update_transaction.modified_count == 0:
-            return -2  # Cập nhật giao dịch thất bại.
+            return -2  # Failed to update transaction.
         
-        # Cập nhật dữ liệu kho sách
+        # Update warehouse data
         book = self.warehouse_collection.find_one({"Book_Id": book_id})
         if not book:
-            return -3  # Không tìm thấy sách trong kho.
+            return -3  # No book found 
         
         new_stock = book.get("Stock", 0) + 1
         new_borrowed_count = book.get("Borrowed_Count", 0) - 1 if book.get("Borrowed_Count", 0) > 0 else 0
@@ -122,18 +107,12 @@ class BorrowReturnManagementApi(main_api):
         )
         
         if update_book.modified_count == 0:
-            return -4  # Cập nhật kho sách thất bại.
+            return -4  # Warehouse update failed.
         
-        return 1  # Trả sách thành công.
+        return 1  # Return book successfully.
 
 
     def search_borrowed_books_by_student(self, student_id):
-        """
-        API tìm kiếm sách đang mượn theo student_id:
-        - Tìm các giao dịch có Student_Id = student_id.
-        - Lọc ra các cuốn sách có Status là "Borrowed".
-        - Trả về danh sách các dictionary với thông tin: Student_Id, Name, Title, Borrow_Date.
-        """
         transactions = self.invoices_collection.find({"Student_Id": student_id})
         results = []
         for transaction in transactions:
