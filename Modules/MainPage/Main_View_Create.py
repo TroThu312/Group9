@@ -21,11 +21,11 @@ class Main_View_Create:
         # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình theo chiều ngang   
+        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                      (self.screen_width - self.window_width) // 2,
-                                      self.window.winfo_y()))
-        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
+                                              (self.screen_width - self.window_width) / 2,
+                                              (self.screen_height - self.window_height) / 2))
+        self.window.configure(bg="#FFFFFF")
         self.window.title('Admin')  # Đặt tiêu đề của cửa sổ ứng dụng
         # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
 
