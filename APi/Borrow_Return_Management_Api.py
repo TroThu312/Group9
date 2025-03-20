@@ -33,6 +33,17 @@ class BorrowReturnManagementApi(main_api):
             return "Book not found"
         elif not user:
             return "Student not found"
+        existing_borrow = self.invoices_collection.find_one({
+            "Student_Id": student_id,
+            "Books": {
+                "$elemMatch": {
+                    "Book_Id": book_id,
+                    "Status": "Borrowed"
+                }
+            }
+        })
+        if existing_borrow:
+            return "Book already borrowed"
         else:
             if book["Stock"] <= 0:
                     return "Book out of stock"

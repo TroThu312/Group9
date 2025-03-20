@@ -9,29 +9,28 @@ class Return_Book_Process:
     def return_button_handle(return_book_instance):
         student_id = return_book_instance.entry_studentid.get().strip()
         book_id = return_book_instance.entry_bookid.get().strip()
-    
         if not student_id or not book_id:
-            messagebox.showerror("Lỗi", "Vui lòng nhập đầy đủ mã sinh viên và mã sách.")
+            messagebox.showerror("Error", "Please enter student ID and book ID.")
             return
         api = BorrowReturnManagementApi()
         result_code = api.return_book_api(student_id, book_id)
         
         if result_code == 1:
-            messagebox.showinfo("Thành công", "Trả sách thành công.")
+            messagebox.showinfo("Success", "Return book successfully.")
             return_book_instance.entry_bookid.delete(0, 'end')
             return_book_instance.entry_search.delete(0, 'end')
             return_book_instance.entry_studentid.delete(0, 'end')
             return_book_instance.load_data()
         elif result_code == -1:
-            messagebox.showerror("Lỗi", f"Không tìm thấy giao dịch mượn sách cho sinh viên {student_id} với sách {book_id} đang được mượn.")
+            messagebox.showerror("Error", f"Transactions for Student ID {student_id} and Book ID {book_id} not found.")
         elif result_code == -2:
-            messagebox.showerror("Lỗi", f"Cập nhật giao dịch thất bại với sách {book_id}.")
+            messagebox.showerror("Error", f"Failed to update transactions for book ID {book_id}.")
         elif result_code == -3:
-            messagebox.showerror("Lỗi", f"Không tìm thấy sách với mã {book_id} trong kho.")
+            messagebox.showerror("Error", f"Book ID {book_id} not found.")
         elif result_code == -4:
-            messagebox.showerror("Lỗi", f"Cập nhật kho sách thất bại với sách {book_id}.")
+            messagebox.showerror("Error", f"Update for Book ID {book_id} failed.")
         else:
-            messagebox.showerror("Lỗi", "Có lỗi không xác định xảy ra.")
+            messagebox.showerror("Error", "Unknown error.")
 
     @staticmethod
     def search_button_handle(return_book_instance):
