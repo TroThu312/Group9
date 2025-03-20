@@ -1,8 +1,8 @@
 from tkinter import *  
 from Modules.Book.Remove.Remove_Book_Process import Remove_Book_Process as rbp
-from PIL import Image, ImageTk  
 import time
 import tkinter as tk
+from tkinter import messagebox 
 
 class Remove_Book_Create:
     def update_time(self):
@@ -59,5 +59,12 @@ class Remove_Book_Create:
         self.book_id_entry = Entry(bd=5, bg="#F1F4F6", fg="#000716", highlightthickness=0,
                                    font=('Arial', 20, 'bold'))
         self.book_id_entry.place(x=497.0, y=421.0, width=434.0, height=60.0)
-
+        self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
+

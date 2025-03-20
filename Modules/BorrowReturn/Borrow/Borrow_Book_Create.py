@@ -1,11 +1,10 @@
 import time
 from tkinter import *  
 from Modules.BorrowReturn.Borrow.Borrow_Book_Process import Borrow_Book_Process as bbp  
-from PIL import Image, ImageTk  
+from PIL import ImageTk  
 import tkinter as tk
+from tkinter import messagebox 
 
-
-# Định nghĩa lớp giao diện Admin
 class Borrow_Book_Create:
 
     def update_time(self):
@@ -98,7 +97,6 @@ class Borrow_Book_Create:
             width=434,
             height=60
         )
-        # -----Show info-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -107,6 +105,11 @@ class Borrow_Book_Create:
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
 
-        # Non resizable window
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 

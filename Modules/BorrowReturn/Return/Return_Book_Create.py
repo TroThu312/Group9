@@ -3,8 +3,8 @@ from tkinter import *
 from tkinter.ttk import Treeview, Style
 from APi.Borrow_Return_Management_Api import BorrowReturnManagementApi
 from Modules.BorrowReturn.Return.Return_Book_Process import Return_Book_Process as rbp
-from PIL import Image, ImageTk 
-
+from PIL import ImageTk 
+from tkinter import messagebox 
 
 class Return_Book_Create:
 
@@ -111,9 +111,6 @@ class Return_Book_Create:
             width=427,
             height=62
         )
-        
-
-        # -----Show info-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF")
@@ -132,6 +129,7 @@ class Return_Book_Create:
         self.load_data()
 
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
     def setup_treeview(self):
         self.frame_tree = Frame(self.window)
@@ -154,7 +152,6 @@ class Return_Book_Create:
         self.tree.configure(yscrollcommand=self.scroll_y.set)
         self.scroll_y.pack(side="right", fill="y")
         self.tree.pack(fill="both", expand=True)
-         # -------Treeview style----------------
         self.style = Style()
         self.style.theme_use("default")
         self.style.configure("Treeview",
@@ -162,8 +159,6 @@ class Return_Book_Create:
                             foreground="black",  
                             rowheight=25,  
                             font=("Arial", 10))
-
-        # -------heading----------------
         self.style.configure("Treeview.Heading",
                             background="#B9E3E9",  
                             foreground="black",  
@@ -175,5 +170,11 @@ class Return_Book_Create:
         self.tree.delete(*self.tree.get_children())
         for row in results:
             self.tree.insert("", "end", values=(row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")))
+            
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
 
         

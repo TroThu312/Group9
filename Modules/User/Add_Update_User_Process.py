@@ -3,8 +3,6 @@ import Modules.MainPage.Main_View_Create as mv
 from tkinter import messagebox
 from APi.User_Api import *
 
-
-
 class Add_Update_User_Process:
     @staticmethod
     def reset_button_handle(self):

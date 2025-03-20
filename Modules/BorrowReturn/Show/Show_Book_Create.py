@@ -2,7 +2,8 @@ import Modules.BorrowReturn.Show.Show_Book_Process as sbp
 from datetime import datetime
 from tkinter import *  
 from tkinter.ttk import Style, Treeview
-from PIL import Image, ImageTk  
+from PIL import ImageTk  
+from tkinter import messagebox 
 import APi.Book_Management_Api as bma
 
 class Show_Book_Create:
@@ -29,7 +30,7 @@ class Show_Book_Create:
         # -----Back button-----
         self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  
         self.back_button = self.canvas.create_image(41, 181, image=self.back_image,
-                                          anchor="nw")  # tạo button trên canva
+                                          anchor="nw") 
         self.canvas.tag_bind(self.back_button, "<Button-1>",
                         lambda event: sbp.Show_Book_Process.back_button_handle(self, username))  
 
@@ -44,7 +45,6 @@ class Show_Book_Create:
                                     relief="flat"
                                     )
         self.search_button.place(x=805, y=265, width=195, height=62)
-        # -----Search bar-----
 
         self.entry_search = Entry(
             bd=5,
@@ -60,7 +60,6 @@ class Show_Book_Create:
             height=62
         )
 
-        # -----Date and time show-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF")
@@ -78,6 +77,7 @@ class Show_Book_Create:
         self.setup_treeview()
         self.load_data()
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
 
         
@@ -102,7 +102,6 @@ class Show_Book_Create:
         self.tree.heading("Genre", text="Genre", anchor=CENTER)
         self.tree.heading("Stock", text="Stock", anchor=CENTER)
 
-        # -------scrollbar----------------
         self.scroll_y = Scrollbar(self.frame_tree, orient="vertical", command=self.tree.yview)
         self.tree.configure(yscrollcommand=self.scroll_y.set)
         self.scroll_x = Scrollbar(self.frame_tree, orient="horizontal", command=self.tree.xview)
@@ -111,7 +110,6 @@ class Show_Book_Create:
         self.scroll_x.pack(side="bottom", fill="x")
         self.tree.pack(side="left", fill="both", expand=False)
 
-        # -------Treeview style----------------
         self.style = Style()
         self.style.theme_use("default")
         self.style.configure("Treeview",
@@ -120,7 +118,6 @@ class Show_Book_Create:
                             rowheight=25, 
                             font=("Arial", 15))
 
-        # -------heading----------------
         self.style.configure("Treeview.Heading",
                             background="#B9E3E9",  
                             foreground="black",  
@@ -132,3 +129,9 @@ class Show_Book_Create:
         self.tree.delete(*self.tree.get_children())
         for row in results:
             self.tree.insert("", "end", values=(row.get("Book_Id"), row.get("Title"), row.get("Author"), row.get("Genre"), row.get("Stock")))
+
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 

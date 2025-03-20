@@ -1,6 +1,7 @@
 from tkinter import *
-from PIL import Image, ImageTk
 import Modules.Forget.Code.Forget_Code_Process as fcp
+from tkinter import messagebox 
+
 class Forget_Code_Create:
 
     def __init__(self):
@@ -61,6 +62,13 @@ class Forget_Code_Create:
         self.code_entry.place(x=483.0, y=513.0, width=366.0, height=50.0)
 
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
+
 
 

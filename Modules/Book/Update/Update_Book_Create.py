@@ -1,8 +1,9 @@
 from datetime import datetime
 from tkinter import *  
-from PIL import Image, ImageTk  
+from PIL import ImageTk  
 from Modules.Book.Update.Update_Book_Process import Update_Book_Process as ubp
 import time
+from tkinter import messagebox 
 
 class Update_Book_Create:
     def update_time(self):
@@ -75,7 +76,7 @@ class Update_Book_Create:
                                     )
         self.update_button.place(x=715, y=676, width=195, height=62)
 
-        # -----Nút reset-----
+        # ---- Reset button-----
 
         self.reset_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  
         self.reset_button = Button(image=self.reset_image,
@@ -178,7 +179,6 @@ class Update_Book_Create:
             height=60
         )
 
-        # -----Info show-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -187,7 +187,11 @@ class Update_Book_Create:
         self.time_label.place(x=1104, y=85  , anchor="nw")
         self.update_time()
 
-
-        # Non resizable window
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
