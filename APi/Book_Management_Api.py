@@ -27,12 +27,20 @@ class Book_Management_Api(main_api):
         title = json_data["Title"]
         author = json_data["Author"]
         genre = json_data["Genre"]
-        # 🔥 Kiểm tra trùng lặp theo Book_Id
+        stock = json_data["Stock"]
+        # Kiểm tra trùng lặp theo Book_Id
         existing_book_by_id = self.warehouse_collection.find_one({'Book_Id': book_id})
         if existing_book_by_id:
-            # Nếu Book_Id đã tồn tại → Báo lỗi
-            return -3
-        # 🔥 Kiểm tra trùng lặp theo Title, Author, Genre
+            # Nếu sách đã tồn tại, cập nhật số lượng sách
+            current_quantity = existing_book_by_id["Stock"]
+            if current_quantity < 30:
+                new_quantity = min(30, current_quantity + stock)  # Đảm bảo không vượt quá 30
+                self.warehouse_collection.update_one(
+                    {'Book_Id': book_id}, {'$set': {'Stock': new_quantity}})
+                return 0  # Thành công
+            else:
+                return -2  # Số lượng sách đã đầy
+        # Kiểm tra trùng lặp theo Title, Author, Genre
         existing_book_by_info = self.warehouse_collection.find_one({
             'Title': title,
             'Author': author,
@@ -41,35 +49,15 @@ class Book_Management_Api(main_api):
         if existing_book_by_info:
             # Nếu Title, Author, Genre đã tồn tại → Báo lỗi
             return -3
-        
         # Get book information from Book_id in the collection
-        book = self.warehouse_collection.find_one({'Book_Id': book_id})
-        if book is None:
-            # Check if the information in json_data is complete or not
-            S = 0
-            for key, value in json_data.items():
-                if self.warehouse_collection.find_one({key: value}) is None:
-                    S += 1
-                else:
-                    continue
-            if S == 6:  # (Book_Id, Title, Author, Genre, Stock, Borrowed Count)
-                # If all 6 pieces of information are available, add a new book to the database
-                self.warehouse_collection.insert_one(json_data)
-                return 0  # Success
-            else:
-                # Error: missing information
-                return -1
+        required_fields = {"Book_Id", "Title", "Author", "Genre", "Stock"}
+        if required_fields.issubset(json_data.keys()):
+            json_data.setdefault("Borrowed_Count", 0)
+            self.warehouse_collection.insert_one(json_data)
+            return 0  # Thành công
         else:
-            # Update the number of books in the database
-            current_quantity = book["Stock"]
-            if current_quantity < 30:
-                new_quantity = current_quantity + json_data["Stock"]
-                self.warehouse_collection.update_one(
-                    {'Book_Id': book_id}, {'$set': {'Stock': new_quantity}})
-                return 0  # Success
-            else:
-                # Error: book quantity is full
-                return -2
+            return -1  # Thiếu thông tin
+
 
     def update_items(self, json_data, book_id):
         # Get book information from json_data
