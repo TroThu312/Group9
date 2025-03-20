@@ -58,33 +58,6 @@ class Book_Management_Api(main_api):
         else:
             return -1  # Missing required fields
 
-
-    def update_items(self, json_data, book_id):
-        # Get book information from json_data
-        book = self.warehouse_collection.find_one({'Book_ID': book_id})
-        _id = book['_id']  # Get the ID of the book
-        if 'Book_ID' in json_data:
-            if self.warehouse_collection.find_one({'Book_ID': json_data['Book_ID']}) is not None:
-                return -2  # Error: Book_ID already exists in the database
-        updated_fields = {}
-        if 'Genre' in json_data:
-            try:
-                datetime.datetime.strptime(json_data['Genre'], "%Y/%m/%d")
-                updated_fields['Genre'] = json_data['Genre']
-            except ValueError:
-                return -3  # Error: Genre format is incorrect
-        if 'Film' in json_data:
-            updated_fields['Film'] = json_data['Film']
-        if 'Author' in json_data:
-            updated_fields['Author'] = json_data['Author']
-        # Update the book information in the database
-        if updated_fields:
-            self.warehouse_collection.update_one({'Book_ID': book_id}, {'$set': updated_fields})
-            return 0  # Update successful
-        else:
-            # No new information was updated
-            return -1
-
     def remove_items(self, book_id):
         book = self.warehouse_collection.find_one({"Book_Id": book_id})
         if not book:
@@ -96,17 +69,17 @@ class Book_Management_Api(main_api):
     def update_book_quantity(self, book_id, quantity, action):
         book = self.warehouse_collection.find_one({'Book_Id': book_id})
         if not book:
-            return -1  # Sách không tồn tại
+            return -1  # Book is not existed
 
         current_stock = book.get("Stock", 0)
         if action == "add":
             new_stock = current_stock + quantity
         elif action == "remove":
             if quantity > current_stock:
-                return -2  # Không đủ số lượng để trừ
+                return -2  # Not enough quantity to decrease
             new_stock = current_stock - quantity
         else:
-                return -3  # Action không hợp lệ
+                return -3  # Action invalid
 
         self.warehouse_collection.update_one({'Book_Id': book_id}, {'$set': {'Stock': new_stock}})
         return 0

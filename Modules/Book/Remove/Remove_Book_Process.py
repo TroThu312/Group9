@@ -3,7 +3,6 @@ import Modules.MainPage.Main_View_Create as mv
 from tkinter import messagebox
 from APi.Book_Management_Api import *
 
-
 class Remove_Book_Process:
 
     @staticmethod

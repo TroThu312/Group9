@@ -1,10 +1,9 @@
 from tkinter import *  
-from PIL import Image, ImageTk 
 import time
 import tkinter as tk
 from Modules.Book.Add.Add_Book_Process import Add_Book_Process as adp
-def relative_to_assets(path: str) -> str:
-    return f"./Images/Book/Add/{path}"
+from tkinter import messagebox 
+
 class Add_Book_Create:
     def update_time(self):
         current_date = time.strftime("%d/%m/%Y")
@@ -112,4 +111,11 @@ class Add_Book_Create:
             font = ('Arial',20)
         )
         self.entry_stock.place(x=500, y=598.0, width=450.0, height=62.0)
-        self.window.mainloop()
+        self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
+        self.window.mainloop() 
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 

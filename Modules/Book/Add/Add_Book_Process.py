@@ -19,7 +19,7 @@ class Add_Book_Process:
             return None
          # Check if entry is valid
         if not book_id.isalnum():
-            messagebox.showerror("Invalid Data", "Book ID must contain letters.")
+            messagebox.showerror("Invalid Data", "Book ID must not be a letter.")
             return None
         
         if title.isdigit():

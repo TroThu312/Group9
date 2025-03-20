@@ -1,6 +1,6 @@
 from tkinter import *
-from PIL import Image, ImageTk
 import Modules.Forget.Name.Forget_Name_Process as fnp
+from tkinter import messagebox 
 
 class Forget_Name_Create:
 
@@ -62,6 +62,12 @@ class Forget_Name_Create:
         self.name_entry.place(x=483.0, y=513.0, width=366.0, height=50.0)
 
         self.window.resizable(False, False)
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
 
 

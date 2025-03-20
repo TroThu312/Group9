@@ -1,8 +1,8 @@
 from tkinter import *
 import Modules.MainPage.Main_View_Process as mvp
-from PIL import Image, ImageTk
 import time
 import tkinter as tk
+from tkinter import messagebox 
 
 class Main_View_Create:
     def update_time(self):
@@ -84,6 +84,12 @@ class Main_View_Create:
         self.add_update_user_button.place(x=781.0, y=558, width=195, height=59)
 
         self.window.resizable(False, False)  
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
         self.window.mainloop()
+    def on_close(self):
+        if messagebox.askyesno("Confirm", "Are you sure you want to exit?"):
+            self.window.destroy()  
+        else:
+            return 
 
 

@@ -42,7 +42,7 @@ class BorrowReturnManagementApi(main_api):
                     {"Book_Id": book_id},
                     {"$inc": {"Stock": -1, "Borrowed_Count": 1}}
                 )
-                # Tạo transaction mới
+                # Create new transaction 
                 transaction_id = f"T{self.invoices_collection.count_documents({}) + 1:03d}"
                 borrow_date = datetime.now().strftime("%Y-%m-%d")
                 new_transaction = {
