@@ -16,14 +16,13 @@ class Forget_Name_Process:
 
     @staticmethod
     def generate_verification_code():
-    # Tao ma xac nhan ngau nhien
+    # Randomize 6 characters for verification code
         characters = string.ascii_letters + string.digits
         Forget_Name_Process.verification_code = ''.join(random.choice(characters) for _ in range(6))
         return Forget_Name_Process.verification_code
 
     @staticmethod
     def send_button_handle(self):
-        """Gửi email chứa mã xác nhận tới email của người dùng"""
         sender_email = "joohyunmm@gmail.com"  
         sender_password = "bvxi gpzq afjt zfle" 
         user_email = self.name_entry.get().strip()
@@ -33,28 +32,25 @@ class Forget_Name_Process:
             messagebox.showerror("Error", "Email not found")
             return
         else:
-            # Tạo mã xác nhận
             verification_code = Forget_Name_Process.generate_verification_code()
             Forget_Name_Process.admin_email_address = user_email
-            # Tạo nội dung email
-            subject = "Mã xác nhận"
-            body = f"Mã xác nhận của bạn là: {verification_code}"
+            subject = "Verification Code"
+            body = f"Your verification code is: {verification_code}"
 
-            # Tạo đối tượng email
             msg = MIMEMultipart()
             msg['From'] = sender_email
-            msg['To'] = user_email  # Gửi đến email của người dùng
+            msg['To'] = user_email  
             msg['Subject'] = subject
             msg.attach(MIMEText(body, 'plain'))
 
-            # Kết nối với server Gmail và gửi email
+            # Connect to server and send email
             try:
                 server = smtplib.SMTP('smtp.gmail.com', 587)
                 server.starttls()
                 server.login(sender_email, sender_password)
                 server.sendmail(sender_email, user_email, msg.as_string())
                 server.quit()
-                print(f"Email đã được gửi tới {user_email}")
+                print(f"Email has been sent to: {user_email}")
                 reply = messagebox.askyesno("Notifications", "Email sent successfully. Press YES to continue.")
                 if reply:
                     Forget_Name_Process.next_page(self)

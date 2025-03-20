@@ -39,19 +39,17 @@ class Return_Book_Process:
     def search_button_handle(return_book_instance):
         student_id = return_book_instance.entry_search.get().strip()
         if not student_id:
-            messagebox.showerror("Lỗi", "Vui lòng nhập Student ID để tìm kiếm.")
+            messagebox.showerror("Error", "Please enter student ID.")
             return
         api = BorrowReturnManagementApi()
         results = api.search_borrowed_books_by_student(student_id)
 
         if not results:
-            messagebox.showinfo("Thông báo", "Không tìm thấy dữ liệu mượn sách cho sinh viên này.")
+            messagebox.showinfo("Notification", "This student has not borrowed any books.")
             return
-
-        # Nếu đã có Treeview hiển thị kết quả, xoá đi trước khi tạo mới
         return_book_instance.tree.delete(*return_book_instance.tree.get_children())
 
-        # Chèn dữ liệu mới vào Treeview
+        # Insert data to treeview
         for row in results:
             return_book_instance.tree.insert("", "end", values=(
                 row.get("Book_Id"), row.get("Student_Id"), row.get("Name"), row.get("Title"), row.get("Borrow_Date")

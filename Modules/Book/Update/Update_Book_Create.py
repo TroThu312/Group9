@@ -1,11 +1,9 @@
 from datetime import datetime
-from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-#import Modules.Book.Update.Update_Book_Process.Update_Book_Process as ubp  # Import module xử lý sự kiện của admin
-from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
+from tkinter import *  
+from PIL import Image, ImageTk  
 from Modules.Book.Update.Update_Book_Process import Update_Book_Process as ubp
 import time
 
-# Định nghĩa lớp giao diện Admin
 class Update_Book_Create:
     def update_time(self):
         current_date = time.strftime("%Y-%m-%d")
@@ -14,35 +12,28 @@ class Update_Book_Create:
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
 
-    def __init__(self, username):  # Phương thức khởi tạo class
-        self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
-
-        # Lấy kích thước màn hình của máy tính
+    def __init__(self, username):  
+        self.window = Tk()  
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
-        # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
-        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
-        self.window.title('Update Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"./Images/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
-
-        # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
+        self.window.configure(bg="#ffffff") 
+        self.window.title('Update Book') 
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
                              bd=0, highlightthickness=0, relief="ridge")
-        self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
+        self.canvas.place(x=0, y=0)  
 
-        # -----Thêm hình nền-----
+        # -----Background image-----
         self.background_image = PhotoImage(file=f"./Images/Book/Update/background_update.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
-        # -----Nút quay lại-----
+        # -----Back button-----
 
-        self.back_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_back.png")  # tạo ảnh button
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_back.png")  
         self.back_button = Button(image=self.back_image,
                                    borderwidth=0,
                                    highlightthickness=0,
@@ -51,9 +42,9 @@ class Update_Book_Create:
                                    )
         self.back_button.place(x=40, y=180, width=151, height=50)
 
-        # -----Nút add-----
+        # -----Add button-----
 
-        self.add_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_add.png")  # tạo ảnh button
+        self.add_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_add.png")  
         self.add_button = Button(image=self.add_image,
                               borderwidth=0,
                               highlightthickness=0,
@@ -62,9 +53,9 @@ class Update_Book_Create:
                               )
         self.add_button.place(x=104, y=576, width=195, height=62)
 
-        # -----Nút remove-----
+        # -----Remove button-----
 
-        self.remove_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_remove.png")  # tạo ảnh button
+        self.remove_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_remove.png")  
         self.remove_button = Button(image=self.remove_image,
                                borderwidth=0,
                                highlightthickness=0,
@@ -73,9 +64,9 @@ class Update_Book_Create:
                                )
         self.remove_button.place(x=357, y=576, width=195, height=62)
 
-        # -----Nút update-----
+        # -----Update button-----
 
-        self.update_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_update.png")  # tạo ảnh button
+        self.update_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_update.png")  
         self.update_button = Button(image=self.update_image,
                                     borderwidth=0,
                                     highlightthickness=0,
@@ -86,7 +77,7 @@ class Update_Book_Create:
 
         # -----Nút reset-----
 
-        self.reset_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  # tạo ảnh button
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/Book/Update/button_reset.png")  
         self.reset_button = Button(image=self.reset_image,
                                     borderwidth=0,
                                     highlightthickness=0,
@@ -187,7 +178,7 @@ class Update_Book_Create:
             height=60
         )
 
-        # -----Hiển thị thông tin-----
+        # -----Info show-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -197,6 +188,6 @@ class Update_Book_Create:
         self.update_time()
 
 
-        # Không cho phép thay đổi kích thước cửa sổ
+        # Non resizable window
         self.window.resizable(False, False)
         self.window.mainloop()

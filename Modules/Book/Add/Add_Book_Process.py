@@ -13,11 +13,11 @@ class Add_Book_Process:
         genre = obj.entry_genre.get().strip()
         stock = obj.entry_stock.get().strip()
 
-        # Kiểm tra nếu có trường nào bị bỏ trống hoặc số lượng không hợp lệ
+        # CHeck if all fields are filled
         if not all([book_id, title, author, genre, stock]):
             messagebox.showerror("Invalid Input", "Please fill in all fields.")
             return None
-         # Kiểm tra kiểu dữ liệu và tính hợp lệ
+         # Check if entry is valid
         if not book_id.isalnum():
             messagebox.showerror("Invalid Data", "Book ID must contain letters.")
             return None

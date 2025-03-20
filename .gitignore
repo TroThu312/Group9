@@ -168,3 +168,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+LinkStart_AddUpdate_User.py
+LinkStart_Borrow.py
+LinkStart_Remove.py

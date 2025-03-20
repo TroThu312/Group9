@@ -14,7 +14,7 @@ class Remove_Book_Process:
             return
         else:
             api = Book_Management_Api()
-            # Hiển thị messagebox xác nhận Yes/No
+            # Yes / No message box
             reply = messagebox.askyesno("Delete", "Are you sure you want to delete this product?")
             if reply:
                 c = api.remove_items(Book_Id)
@@ -24,7 +24,7 @@ class Remove_Book_Process:
                     messagebox.showinfo("SUCCESS!", "BOOK REMOVED!")
                     self.book_id_entry.delete(0, END)
             else:
-                messagebox.showerror("Notification", "Action Cancelled")
+                messagebox.showinfo("Notification", "Action Cancelled")
 
 
     @staticmethod

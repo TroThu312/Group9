@@ -1,43 +1,34 @@
 from datetime import datetime
-from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
+from tkinter import *  
 from tkinter.ttk import Treeview, Style
 from APi.Borrow_Return_Management_Api import BorrowReturnManagementApi
 from Modules.BorrowReturn.Return.Return_Book_Process import Return_Book_Process as rbp
-#import Return_Book_Process as rbp  # Import module xử lý sự kiện của admin
-from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
+from PIL import Image, ImageTk 
 
 
-# Định nghĩa lớp giao diện Admin
 class Return_Book_Create:
 
-    def __init__(self, username):  # Phương thức khởi tạo class
-        self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
-
-        # Lấy kích thước màn hình của máy tính
+    def __init__(self, username): 
+        self.window = Tk()  
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
-        # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
-        self.window.configure(bg="#ffffff")  # Đặt màu nền cho cửa sổ
-        self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = f"../../../Images/BorrowReturn/User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
-
-        # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
+        self.window.configure(bg="#ffffff")  
+        self.window.title('Borrow Book') 
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
                              bd=0, highlightthickness=0, relief="ridge")
-        self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
+        self.canvas.place(x=0, y=0)  
 
-        # -----Thêm hình nền-----
+        # -----Background image-----
         self.background_image = PhotoImage(file=f"./Images/BorrowReturn/background_return.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
-        # -----Nút quay lại-----
-        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png")  # tạo ảnh button
+        # -----Back button-----
+        self.back_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_back.png") 
         self.back_button = Button(image=self.back_image,
                                   borderwidth=0,
                                   highlightthickness=0,
@@ -46,8 +37,8 @@ class Return_Book_Create:
                                   )
         self.back_button.place(x=40, y=180, width=151, height=50)
 
-        # -----Nút reset-----
-        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  # tạo ảnh button
+        # -----Reset button-----
+        self.reset_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_reset.png")  
         self.reset_button = Button(image=self.reset_image,
                               borderwidth=0,
                               highlightthickness=0,
@@ -57,8 +48,8 @@ class Return_Book_Create:
         self.reset_button.place(x=325, y=570, width=195, height=62)
 
 
-        # -----Nút Search-----
-        self.search_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_search.png")  # tạo ảnh button
+        # -----Search button-----
+        self.search_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_search.png")  
         self.search_button = Button(image=self.search_image,
                                     borderwidth=0,
                                     highlightthickness=0,
@@ -66,8 +57,8 @@ class Return_Book_Create:
                                     relief="flat"
                                     )
         self.search_button.place(x=1062, y=198, width=195, height=62)
-        # -----Nút submit-----
-        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  # tạo ảnh button
+        # -----submit button-----
+        self.submit_image = ImageTk.PhotoImage(file=f"./Images/BorrowReturn/button_submit.png")  
         self.submit_button = Button(image=self.submit_image,
                                     borderwidth=0,
                                     highlightthickness=0,
@@ -122,7 +113,7 @@ class Return_Book_Create:
         )
         
 
-        # -----Hiển thị thông tin-----
+        # -----Show info-----
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date = Label(self.window, text="23/2/2025", font=("Inter", 20, "bold"), bg="#9CC8FF")
@@ -131,9 +122,9 @@ class Return_Book_Create:
         self.time.place(x=1073, y=85, anchor="nw")
 
         def update_time():
-            self.now_time = datetime.now().strftime("%H:%M:%S")  # Lấy thời gian hiện tại
-            self.now_date = datetime.now().strftime("%d-%m-%Y")  # Lấy thời gian hiện tại
-            self.time.config(text=self.now_time)  # Cập nhật vào Label
+            self.now_time = datetime.now().strftime("%H:%M:%S")  
+            self.now_date = datetime.now().strftime("%d-%m-%Y")  
+            self.time.config(text=self.now_time)  
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
         update_time()
@@ -163,19 +154,19 @@ class Return_Book_Create:
         self.tree.configure(yscrollcommand=self.scroll_y.set)
         self.scroll_y.pack(side="right", fill="y")
         self.tree.pack(fill="both", expand=True)
-         # -------Thiết lập style cho treeview----------------
+         # -------Treeview style----------------
         self.style = Style()
         self.style.theme_use("default")
         self.style.configure("Treeview",
-                            background="#B9E3E9",  # Màu nền của bảng
-                            foreground="black",  # Màu chữ
-                            rowheight=25,  # Độ cao mỗi dòng
+                            background="#B9E3E9",  
+                            foreground="black",  
+                            rowheight=25,  
                             font=("Arial", 10))
 
         # -------heading----------------
         self.style.configure("Treeview.Heading",
-                            background="#B9E3E9",  # Màu nền của bảng
-                            foreground="black",  # Màu chữ
+                            background="#B9E3E9",  
+                            foreground="black",  
                             font=("Arial", 10))
 
     def load_data(self):

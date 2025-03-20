@@ -1,6 +1,5 @@
-from tkinter import *  # Import toàn bộ thư viện Tkinter để tạo giao diện GUI
-  # Import module xử lý sự kiện của admin
-from PIL import Image, ImageTk  # Phải thêm thư viện này để tạo ảnh button
+from tkinter import *  
+from PIL import Image, ImageTk 
 import time
 import tkinter as tk
 from Modules.Book.Add.Add_Book_Process import Add_Book_Process as adp
@@ -13,28 +12,21 @@ class Add_Book_Create:
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
         self.window.after(1000, self.update_time)
-    def __init__(self, username):  # Phương thức khởi tạo class
-        self.window = Tk()  # Khởi tạo cửa sổ giao diện chính
-       
-        # Lấy kích thước màn hình của máy tính
+    def __init__(self, username):  
+        self.window = Tk()  
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
-        # Thiết lập kích thước cửa sổ ứng dụng
         self.window_width = 1280
         self.window_height = 832
-        # Căn giữa cửa sổ ứng dụng trên màn hình
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
                                               (self.screen_width - self.window_width) / 2,
                                               (self.screen_height - self.window_height) / 2))
         self.window.configure(bg="#FFFFFF")
-        self.window.title('Borrow Book')  # Đặt tiêu đề của cửa sổ ứng dụng
-        # self.window.iconphoto(False, PhotoImage(file = relative_to_assets("User/MainPage/UserIcon.png"))# Đặt icon cho cửa sổ
-
-        # Tạo một canvas (vùng vẽ) để chứa hình ảnh và các nút bấm
+        self.window.title('Borrow Book')  
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
                              bd=0, highlightthickness=0, relief="ridge")
-        self.canvas.place(x=0, y=0)  # Đặt vị trí canvas trong cửa sổ
-        # --- Hình nền  ---
+        self.canvas.place(x=0, y=0)  
+        # --- Background Image  ---
         self.background_image = PhotoImage(file=f"./Images/Book/Add/background.png")
         self.canvas.create_image(640.0, 416.0, image=self.background_image)
 
@@ -66,7 +58,7 @@ class Add_Book_Create:
             command=lambda: adp.back_button_handle(self, username),
             relief="flat")
         self.button_back.place(x=41.0,y=181.0,width=151.0,height=50.0)
-      # Hiển thị ngày & giờ
+      # Date and time label
         self.name = Label(self.window, text= username, font=("Inter", 20, "bold"), bg="#9BC8FF")
         self.name.place(x=150, y=85, anchor="nw")
         self.date_label = tk.Label(self.window, font=("Inter", 20,"bold"), bg="#9BC8FF")
@@ -77,7 +69,7 @@ class Add_Book_Create:
         
         
     
-    # ---- Dòng nhập liệu ---- 
+    # ---- Entry fields ---- 
         self.entry_book_id = Entry(
             bd=5,
             bg="#F1F4F6",
