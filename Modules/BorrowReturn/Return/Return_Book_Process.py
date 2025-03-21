@@ -10,7 +10,7 @@ class Return_Book_Process:
         student_id = return_book_instance.entry_studentid.get().strip()
         book_id = return_book_instance.entry_bookid.get().strip()
         if not student_id or not book_id:
-            messagebox.showerror("Error", "Please enter student ID and book ID.")
+            messagebox.showerror("Error", "Please enter Student ID and Book ID.")
             return
         api = BorrowReturnManagementApi()
         result_code = api.return_book_api(student_id, book_id)
@@ -34,12 +34,12 @@ class Return_Book_Process:
 
     @staticmethod
     def search_button_handle(return_book_instance):
-        student_id = return_book_instance.entry_search.get().strip()
-        if not student_id:
+        search = return_book_instance.entry_search.get().strip()
+        if not search:
             messagebox.showerror("Error", "Please enter student ID.")
             return
         api = BorrowReturnManagementApi()
-        results = api.search_borrowed_books_by_student(student_id)
+        results = api.search_borrowed_books(search)
 
         if not results:
             messagebox.showinfo("Notification", "This student has not borrowed any books.")
