@@ -18,8 +18,8 @@ class Add_Book_Create:
         self.window_width = 1280
         self.window_height = 832
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#FFFFFF")
         self.window.title('Borrow Book')  
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
