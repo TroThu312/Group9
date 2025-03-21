@@ -13,8 +13,8 @@ class Add_Update_User_Create:
         self.window_width = 1280
         self.window_height = 832
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#ffffff") 
         self.window.title('Borrow Book')  
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
@@ -52,7 +52,7 @@ class Add_Update_User_Create:
         self.search_button_image = PhotoImage(file=f"./Images/User/search_button.png")
         self.search_button = Button(image=self.search_button_image, borderwidth=0, highlightthickness=0, relief="flat",
                                   command=lambda: auup.search_button_handle(self))
-        self.search_button.place(x=1102.0, y=196.0, width=150.0, height=62.0)
+        self.search_button.place(x=1102.0, y=225.0, width=150.0, height=62.0)
 
         # ---- Entry fields ----
         self.student_id_entry = Entry(bd=5, bg="#F1F4F6", fg="#000716", highlightthickness=0,
@@ -73,7 +73,7 @@ class Add_Update_User_Create:
 
         self.search_entry = Entry(bd=5, bg="#F1F4F6", fg="#000716", highlightthickness=0,
                                    font=('Arial', 20))
-        self.search_entry.place(x=698.0, y=198.0, width=380.0, height=62.0)
+        self.search_entry.place(x=698.0, y=225.0, width=380.0, height=62.0)
 
 
         self.name = Label(self.window, text=username, font=("Inter", 20, "bold"), bg="#9BC8FF")
@@ -98,7 +98,7 @@ class Add_Update_User_Create:
     
     def setup_treeview(self):
         self.frame_tree = Frame(self.window)
-        self.frame_tree.place(x=620, y=270, width=650, height=411)
+        self.frame_tree.place(x=620, y=295, width=650, height=411)
         self.tree = Treeview(self.frame_tree, columns=("Student_Id", "Name", "Contract", "Address"), show="headings")
         self.tree.heading("Student_Id", text="Student ID")
         self.tree.heading("Name", text="Name")
