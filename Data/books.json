@@ -1,19 +1,19 @@
 [
     {
-        "Book_Id": "9780132350884",
-        "Title": "Clean Code",
-        "Author": "Robert C. Martin",
+        "Book_Id": "1718502702",
+        "Title": "Python Crash Course, 3rd Edition",
+        "Author": "Eric Matthes",
         "Genre": "Programming",
-        "Stock": 10,
-        "Borrowed_Count": 5
+        "Stock": 20,
+        "Borrowed_Count": 2
     },
     {
-        "Book_Id": "9780201616224",
-        "Title": "The Pragmatic Programmer",
-        "Author": "Andrew Hunt",
-        "Genre": "Programming",
-        "Stock": 7,
-        "Borrowed_Count": 3
+        "Book_Id": "0593718720",
+        "Title": "The Next Conversation: Argue Less, Talk More",
+        "Author": "Jefferson Fisher",
+        "Genre": "Business",
+        "Stock": 13,
+        "Borrowed_Count": 2
     },
     {
         "Book_Id": "0735211299",
@@ -21,23 +21,23 @@
         "Author": "James Clear",
         "Genre": "Self-Help",
         "Stock": 12,
-        "Borrowed_Count": 8
+        "Borrowed_Count": 0
     },
     {
-        "Book_Id": "9780307887894",
-        "Title": "The Lean Startup",
-        "Author": "Eric Ries",
-        "Genre": "Business",
+        "Book_Id": "0672324539",
+        "Title": "Data Structures and Algorithms in Java",
+        "Author": "Robert Lafore",
+        "Genre": "Programming",
         "Stock": 15,
-        "Borrowed_Count": 10
+        "Borrowed_Count": 2
     },
     {
-        "Book_Id": "9780061122415",
-        "Title": "The Alchemist",
-        "Author": "Paulo Coelho",
-        "Genre": "Fiction",
+        "Book_Id": "1009276972",
+        "Title": "Data Structures and Algorithms using Python",
+        "Author": "Subrata Saha",
+        "Genre": "Programming",
         "Stock": 20,
-        "Borrowed_Count": 15
+        "Borrowed_Count": 4
     },
     {
         "Book_Id": "0714705853",
@@ -46,5 +46,69 @@
         "Genre": "Fiction",
         "Stock": 8,
         "Borrowed_Count": 3
+    },
+    {
+        "Book_Id": "1589796535",
+        "Title": "The Only Astrology Book You'll Ever Need",
+        "Author": "Joanna Martine Woolfolk",
+        "Genre": "Astrology",
+        "Stock": 14,
+        "Borrowed_Count": 2
+    },
+    {
+        "Book_Id": "0553378384",
+        "Title": "Astrology for the Soul",
+        "Author": "Jan Spiller",
+        "Genre": "Astrology",
+        "Stock": 7,
+        "Borrowed_Count": 3
+    },
+    {
+        "Book_Id": "0374533555",
+        "Title": "Thinking, Fast and Slow",
+        "Author": "Daniel Kahneman",
+        "Genre": "Business",
+        "Stock": 8,
+        "Borrowed_Count": 2
+    },
+    {
+        "Book_Id": "1119002257",
+        "Title": "Storytelling with Data",
+        "Author": "Cole Nussbaumer Knaflic",
+        "Genre": "Information System",
+        "Stock": 15,
+        "Borrowed_Count": 3
+    },
+    {
+        "Book_Id": "1492041130",
+        "Title": "Data Science from Scratch: First Principles with Python",
+        "Author": "Joel Grus",
+        "Genre": "Programming",
+        "Stock": 20,
+        "Borrowed_Count": 1
+    },
+    {
+        "Book_Id": "1932234071",
+        "Title": "Naoko: A Novel",
+        "Author": "Keigo Higashino",
+        "Genre": "Fiction",
+        "Stock": 8,
+        "Borrowed_Count": 0
+    },
+    {
+        "Book_Id": "0714705853",
+        "Title": "Brief Answers to the Big Questions",
+        "Author": "Stephen Hawking",
+        "Genre": "Science & Math", 
+        "Stock": 5,
+        "Borrowed_Count": 1
+    },
+    {
+        "Book_Id": "8180944182",
+        "Title": "Relativity: The Special and the General Theorys",
+        "Author": "Albert Einstein",
+        "Genre": "Physics", 
+        "Stock": 7,
+        "Borrowed_Count": 2
     }
 ]
