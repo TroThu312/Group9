@@ -15,8 +15,8 @@ class Show_Book_Create:
         self.window_width = 1280
         self.window_height = 832
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#ffffff")  
         self.window.title('Borrow Book') 
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
@@ -69,7 +69,7 @@ class Show_Book_Create:
 
         def update_time():
             self.now_time = datetime.now().strftime("%H:%M:%S")  
-            self.now_date = datetime.now().strftime("%d-%m-%Y") 
+            self.now_date = datetime.now().strftime("%d/%m/%Y") 
             self.time.config(text=self.now_time)  
             self.date.config(text=self.now_date)
             self.window.after(1000, update_time)
