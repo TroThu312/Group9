@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 class Remove_Book_Create:
     def update_time(self):
-        current_date = time.strftime("%Y-%m-%d")
+        current_date = time.strftime("%d/%m/%Y")
         current_time = time.strftime("%H:%M:%S")
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
@@ -19,8 +19,8 @@ class Remove_Book_Create:
         self.window_width = 1280
         self.window_height = 832
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#ffffff")  
         self.window.title('Borrow Book')  
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
@@ -57,7 +57,7 @@ class Remove_Book_Create:
 
         # ---- Entry fields ----
         self.book_id_entry = Entry(bd=5, bg="#F1F4F6", fg="#000716", highlightthickness=0,
-                                   font=('Arial', 20, 'bold'))
+                                   font=('Arial', 20))
         self.book_id_entry.place(x=497.0, y=421.0, width=434.0, height=60.0)
         self.window.resizable(False, False)
         self.window.protocol("WM_DELETE_WINDOW", self.on_close)
