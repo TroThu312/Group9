@@ -123,9 +123,18 @@ class BorrowReturnManagementApi(main_api):
         return 1  # Return book successfully.
 
 
-    def search_borrowed_books_by_student(self, student_id):
-        transactions = self.invoices_collection.find({"Student_Id": student_id})
+    def search_borrowed_books(self, search):
+        query = {
+        "$or": [
+            {"Student_Id": {"$regex": search, "$options": "i"}},  # Tìm trong Student_Id
+            {"Name": {"$regex": search, "$options": "i"}},        # Tìm trong Name
+            {"Books.Title": {"$regex": search, "$options": "i"}}  # Tìm trong Title của sách
+            ]
+        }
+
+        transactions = self.invoices_collection.find(query)  # Truy vấn dữ liệu
         results = []
+
         for transaction in transactions:
             for book in transaction.get("Books", []):
                 if book.get("Status") == "Borrowed":
@@ -136,6 +145,7 @@ class BorrowReturnManagementApi(main_api):
                         "Title": book.get("Title"),
                         "Borrow_Date": book.get("Borrow_Date")
                     })
+
         return results
     
     def show_book_api(self, search):

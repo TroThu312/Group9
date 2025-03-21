@@ -11,6 +11,9 @@ class Show_Book_Process:
         
     def show_button_handle(self):
         search = self.entry_search.get().strip()
+        if not search:
+            messagebox.showerror("Error", "Please fill the entry!")
+            return
         api = Bma.BorrowReturnManagementApi()
         books = api.show_book_api(search)
         if not self.tree:

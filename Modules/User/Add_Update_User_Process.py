@@ -2,15 +2,9 @@ from tkinter import *
 import Modules.MainPage.Main_View_Create as mv
 from tkinter import messagebox
 from APi.User_Api import *
+import re
 
 class Add_Update_User_Process:
-    @staticmethod
-    def reset_button_handle(self):
-        self.student_id_entry.delete(0, END)
-        self.name_entry.delete(0, END)
-        self.contact_entry.delete(0, END)
-        self.address_entry.delete(0, END)
-        messagebox.showinfo("Reset", "Reset successfully!")
 
     @staticmethod
     def add_button_handle(self):
@@ -20,6 +14,18 @@ class Add_Update_User_Process:
         address = self.address_entry.get()
         if not student_id or not name or not contact or not address:
             messagebox.showerror("Warning", "Please fill all the entries")
+            return
+        elif not (re.search(r'[a-zA-Z]', student_id) and re.search(r'\d', student_id)):
+            messagebox.showerror("Error", "Student ID must contain both letters and numbers")
+            return
+        elif not name.replace(" ", "").isalpha():
+            messagebox.showerror("Error", "Name must contain only letters")
+            return
+        elif not contact.isdigit():
+            messagebox.showerror("Error", "Contact must contain only numbers")
+            return
+        if address.isdigit():
+            messagebox.showerror("Error", "Address cannot contain only numbers")
             return
         else:
             api = User_Api()
@@ -69,9 +75,17 @@ class Add_Update_User_Process:
             messagebox.showinfo("Info", "No user found!")
             return
         self.load_search_data(results)
+
+    @staticmethod
+    def reset_button_handle(self):
+        self.student_id_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.contact_entry.delete(0, END)
+        self.address_entry.delete(0, END)
         
     @staticmethod
     def back_button_handle(self, username):
         self.window.destroy()
         app = mv.Main_View_Create(username)
         app.window.mainloop()
+    
