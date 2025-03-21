@@ -8,7 +8,7 @@ from tkinter import messagebox
 class Borrow_Book_Create:
 
     def update_time(self):
-        current_date = time.strftime("%Y-%m-%d")
+        current_date = time.strftime("%d/%m/%Y")
         current_time = time.strftime("%H:%M:%S")
         self.date_label.config(text=f"{current_date}")
         self.time_label.config(text=f"{current_time}")
@@ -20,8 +20,8 @@ class Borrow_Book_Create:
         self.window_width = 1280
         self.window_height = 832
         self.window.geometry("%dx%d+%d+%d" % (self.window_width, self.window_height,
-                                              (self.screen_width - self.window_width) / 2,
-                                              (self.screen_height - self.window_height) / 2))
+                                      (self.screen_width - self.window_width) // 2,
+                                      self.window.winfo_y()))
         self.window.configure(bg="#ffffff")  
         self.window.title('Borrow Book') 
         self.canvas = Canvas(self.window, bg="#ffffff", height=832, width=1280,
