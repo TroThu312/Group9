@@ -1,6 +1,6 @@
 from datetime import datetime
 from APi.Main_Api import Api as main_api
-
+from tkinter import messagebox
 
 class Book_Management_Api(main_api):
 
@@ -37,6 +37,7 @@ class Book_Management_Api(main_api):
                 new_quantity = min(30, current_quantity + stock)  
                 self.warehouse_collection.update_one(
                     {'Book_Id': book_id}, {'$set': {'Stock': new_quantity}})
+                messagebox.showinfo("Success", "Book quantity updated successfully")
                 return 0  # Success
             else:
                 return -2  # Error: Quantity exceeds the limit
@@ -47,7 +48,6 @@ class Book_Management_Api(main_api):
             'Genre': genre
         })
         if existing_book_by_info:
-            # If Title, Author, Genre already exists → Return Error
             return -3
         # Get book information from Book_id in the collection
         required_fields = {"Book_Id", "Title", "Author", "Genre", "Stock"}
