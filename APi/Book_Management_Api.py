@@ -63,9 +63,11 @@ class Book_Management_Api(main_api):
         if not book:
             return "Not found"
         else:
-            book_id = book['Book_Id']  # get id of book
-            self.warehouse_collection.delete_one({'Book_Id': book_id})
-            return "Done"
+            reply = messagebox.askyesno("Delete", "Are you sure you want to delete this product?")
+            if reply:
+                self.warehouse_collection.delete_one({'Book_Id': book_id})
+                return "Done"
+            
     def update_book_quantity(self, book_id, quantity, action):
         book = self.warehouse_collection.find_one({'Book_Id': book_id})
         if not book:
@@ -84,6 +86,8 @@ class Book_Management_Api(main_api):
         self.warehouse_collection.update_one({'Book_Id': book_id}, {'$set': {'Stock': new_stock}})
         return 0
     def update_book_info(self, book_id, update_data):
+        if not book_id.isdigit():
+            return -1
         book = self.warehouse_collection.find_one({"Book_Id": book_id})
         if not book:
             return -1

@@ -13,18 +13,14 @@ class Remove_Book_Process:
             return
         else:
             api = Book_Management_Api()
-            # Yes / No message box
-            reply = messagebox.askyesno("Delete", "Are you sure you want to delete this product?")
-            if reply:
-                c = api.remove_items(Book_Id)
-                if c == "Not found":
-                    messagebox.showerror("Warning", "Book not found")
-                elif c == "Done":
-                    messagebox.showinfo("SUCCESS!", "BOOK REMOVED!")
-                    self.book_id_entry.delete(0, END)
+            c = api.remove_items(Book_Id)
+            if c == "Not found":
+                messagebox.showerror("Warning", "Book not found")
+            elif c == "Done":
+                messagebox.showinfo("SUCCESS!", "BOOK REMOVED!")
+                self.book_id_entry.delete(0, END)
             else:
                 messagebox.showinfo("Notification", "Action Cancelled")
-
 
     @staticmethod
     def back_button_handle(self, username):
