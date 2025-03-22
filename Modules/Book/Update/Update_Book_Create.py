@@ -90,7 +90,7 @@ class Update_Book_Create:
         # -----Bookid entry quantity-----
 
 
-        self.entry_bookid_quatity = Entry(
+        self.entry_bookid_quantity = Entry(
             bd=5,
             bg="#F1F4F6",
             fg="#000",
@@ -98,7 +98,7 @@ class Update_Book_Create:
             highlightthickness=0,
             font=("Arial", 20)
         )
-        self.entry_bookid_quatity.place(
+        self.entry_bookid_quantity.place(
             x=269,
             y=403,
             width=319,

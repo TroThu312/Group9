@@ -68,6 +68,9 @@ class Update_Book_Process:
         }
         api = bma.Book_Management_Api()
         current_data = api.get_book_info(book_id)
+        if not current_data:
+            messagebox.showerror("Error", "Book not found!")
+            return
         update_data = {}
         if title and title != current_data["Title"]:
             update_data["Title"] = title

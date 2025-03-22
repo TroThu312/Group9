@@ -12,14 +12,13 @@ class Add_Book_Process:
         author = obj.entry_author.get().strip()
         genre = obj.entry_genre.get().strip()
         stock = obj.entry_stock.get().strip()
-
         # CHeck if all fields are filled
         if not all([book_id, title, author, genre, stock]):
             messagebox.showerror("Invalid Input", "Please fill in all fields.")
             return None
          # Check if entry is valid
-        if not book_id.isalnum():
-            messagebox.showerror("Invalid Data", "Book ID must not be a letter.")
+        if not book_id.isdigit():
+            messagebox.showerror("Invalid Data", "Book ID must not contains letter.")
             return None
         
         if title.isdigit():
