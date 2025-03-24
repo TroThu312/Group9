@@ -28,7 +28,7 @@ import ctypes
 load_dotenv(find_dotenv())
 host = os.getenv("HOSTNAME")
 client = MongoClient(host)
-#check there was database named group2 in client
+#Check there was database named Group9 in client
 if "Group9" in client.list_database_names():
     print("Database already existed")
     db = client['Group9']
@@ -37,7 +37,7 @@ else:
     db = client['Group9']
     print("Database created")
 
-#check there was collection named users in db
+#check there was collection named admin in db
 def import_admin_data():
     with open("./Data/admin.json", "r") as f:
         data = f.read()
@@ -48,19 +48,19 @@ def import_admin_data():
             db["admin"].insert_one(element)
         else:
             continue
-    print("Imported Users' data successfully")
+    print("Imported admin data successfully")
 if "admin" in db.list_collection_names():
-    print("Collection Users already existed")
+    print("Collection admin already existed")
     #import data from ./Data/admin.json
     import_admin_data()
 
 else:
     collection = db.create_collection("admin")
-    print("Collection Users created")
-    #import data from ./Data/users.json to collection
+    print("Collection admin created")
+    #import data from ./Data/admin.json to collection
     import_admin_data()
 
-
+#check there was collection named users in db
 def import_user_data():
     with open("./Data/users.json", "r") as f:
         data = f.read()
@@ -71,15 +71,15 @@ def import_user_data():
             db["users"].insert_one(element)
         else:
             continue
-    print("Imported Users' data successfully")
+    print("Imported users data successfully")
 if "users" in db.list_collection_names():
-    print("Collection Users already existed")
+    print("Collection users already existed")
     #import data from ./Data/users.json
     import_user_data()
 
 else:
     collection = db.create_collection("users")
-    print("Collection Users created")
+    print("Collection users created")
     #import data from ./Data/users.json to collection
     import_user_data()
 
@@ -94,7 +94,7 @@ def import_books_data():
             db["books"].insert_one(element)
         else:
             continue
-    print("Imported Book's data successfully")
+    print("Imported books data successfully")
 
 if "books" in db.list_collection_names():
     print("Collection books already existed")
@@ -118,7 +118,7 @@ def import_transactions_data():
             db["transactions"].insert_one(element)
         else:
             continue
-    print("Imported transactions' data successfully")
+    print("Imported transactions data successfully")
 
 
 if "transactions" in db.list_collection_names():
