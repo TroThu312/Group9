@@ -126,13 +126,13 @@ class BorrowReturnManagementApi(main_api):
     def search_borrowed_books(self, search):
         query = {
         "$or": [
-            {"Student_Id": {"$regex": search, "$options": "i"}},  # Tìm trong Student_Id
-            {"Name": {"$regex": search, "$options": "i"}},        # Tìm trong Name
-            {"Books.Title": {"$regex": search, "$options": "i"}}  # Tìm trong Title của sách
+            {"Student_Id": {"$regex": search, "$options": "i"}},  
+            {"Name": {"$regex": search, "$options": "i"}},        
+            {"Books.Title": {"$regex": search, "$options": "i"}}  
             ]
         }
 
-        transactions = self.invoices_collection.find(query)  # Truy vấn dữ liệu
+        transactions = self.invoices_collection.find(query)  
         results = []
 
         for transaction in transactions:

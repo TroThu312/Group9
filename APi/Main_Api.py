@@ -16,8 +16,3 @@ class Api:
         self.users_collection = self.db['users']
         self.warehouse_collection = self.db['books']
         self.invoices_collection = self.db['transactions']
-
-if __name__ == "__main__":
-    api = Api()
-    print("Connected to MongoDB successfully!")
-    print("Collections:", api.db.list_collection_names())
